@@ -21,7 +21,9 @@ def parsePacket(s):
     inputTextVal = inputTextVal.replace("\t","")
     print("stripping white spaces...")
 
+    # get TPDU
+    outputText = "TPDU:\t" + inputTextVal[:8] + "\r\n"
 
     print(inputTextVal)
     print("end parsing...")
-    return inputTextVal
+    return outputText

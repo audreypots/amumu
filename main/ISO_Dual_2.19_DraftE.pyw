@@ -12,6 +12,10 @@ inputText.grid(row=1,column=0)
 outputText = Text(screen, height = 50, width = 48)
 outputText.grid(row=1,column=1)
 
+#TODO: test only
+inputText.insert(END, "400800091122334455667788")
+
+
 def parseButtonPress():
     inputTextVal = inputText.get("1.0", END)
     parsedText = parsePacket(inputTextVal)
