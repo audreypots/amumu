@@ -1,3 +1,4 @@
 .vscode/
 main/*.pyc
+main/modules/*.pyc
 tests/*.pyc

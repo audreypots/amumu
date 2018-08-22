@@ -1,6 +1,11 @@
 #main file
-from Tkinter import *
-from module1 import parsePacket
+from Tkinter import Label
+from Tkinter import Text
+from Tkinter import mainloop
+from Tkinter import Tk
+from Tkinter import END
+from Tkinter import Button
+from modules import module1
 
 screen = Tk()
 
@@ -18,11 +23,11 @@ inputText.insert(END, "400800091122334455667788")
 
 def parseButtonPress():
     inputTextVal = inputText.get("1.0", END)
-    parsedText = parsePacket(inputTextVal)
+    parsedText = module1.parse_packet(inputTextVal)
     outputText.delete("1.0", END)
     outputText.insert(END, parsedText)
-    
+
 parseButton = Button(screen, text = 'Parse Packet', command = parseButtonPress) 
 parseButton.grid(row=2, column=0)
- 
+
 mainloop()
