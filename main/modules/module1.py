@@ -19,7 +19,7 @@ def parse_packet(string_value):
 
     return output_text
 
-def is_valid_hex_val(string_value):
+def check_valid_hex_val(string_value):
     """check if string contains hex values only"""
     pass
     

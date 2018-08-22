@@ -35,6 +35,15 @@ class Module1Test(unittest.TestCase):
         self.assertEqual(module1.remove_white_spaces("00\t00"),"0000")
 
     #####################
+    # check_valid_hex_val
+    #####################
+    def test_check_valid_hex_val_tc1(self):
+        """return invalid for invalid values"""
+        self.assertEqual(module1.check_valid_hex_val("G"), "invalid")
+        self.assertEqual(module1.check_valid_hex_val("H"), "invalid")
+        self.assertEqual(module1.check_valid_hex_val("0H"), "invalid")
+
+    #####################
     # parse_packet
     #####################
     def test_parse_packet_tc1(self):
