@@ -39,9 +39,9 @@ class Module1Test(unittest.TestCase):
     #####################
     def test_check_valid_hex_val_tc1(self):
         """return invalid for invalid values"""
-        self.assertEqual(module1.check_valid_hex_val("G"), "invalid")
-        self.assertEqual(module1.check_valid_hex_val("H"), "invalid")
-        self.assertEqual(module1.check_valid_hex_val("0H"), "invalid")
+        self.assertNotEqual(module1.check_valid_hex_val("G"), "valid")
+        self.assertNotEqual(module1.check_valid_hex_val("H"), "valid")
+        self.assertNotEqual(module1.check_valid_hex_val("0H"), "valid")
 
     def test_check_valid_hex_val_tc2(self):
         """
