@@ -43,6 +43,13 @@ class Module1Test(unittest.TestCase):
         self.assertEqual(module1.check_valid_hex_val("H"), "invalid")
         self.assertEqual(module1.check_valid_hex_val("0H"), "invalid")
 
+    def test_check_valid_hex_val_tc2(self):
+        """
+        check for valid hex values
+        0-9 and A-F and a-f
+        """
+        self.assertEqual(module1.check_valid_hex_val("0123456789abcdefABCDEF"), "valid")
+        
     #####################
     # parse_packet
     #####################
