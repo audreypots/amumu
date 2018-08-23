@@ -12,10 +12,10 @@ screen = Tk()
 Label(screen, text="Packet (HEX Value ONLY)").grid(row=0, column=0)
 Label(screen, text="Output").grid(row=0, column=1)
 inputText = Text(screen, height = 50, width = 48)
-inputText.grid(row=1,column=0)
+inputText.grid(row=2,column=0)
 
 outputText = Text(screen, height = 50, width = 48)
-outputText.grid(row=1,column=1)
+outputText.grid(row=2,column=1)
 
 #TODO: test only
 inputText.insert(END, "400800091122334455667788")
@@ -28,6 +28,6 @@ def parseButtonPress():
     outputText.insert(END, parsedText)
 
 parseButton = Button(screen, text = 'Parse Packet', command = parseButtonPress) 
-parseButton.grid(row=2, column=0)
+parseButton.grid(row=1, column=0)
 
 mainloop()

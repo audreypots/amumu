@@ -12,7 +12,20 @@
                 "reveal": "always",
                 "focus": false,
                 "panel": "dedicated"
-            }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "python run main",
+            "type": "shell",
+            "command": "python main\\ISO_Dual_2.19_DraftE.pyw",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
         }
     ]
 }
