@@ -1,26 +1,8 @@
-#module 1
 """
-This module contains the main functions for parsing ISO8583 Packets
-based on ISO_Dual_2.19_DraftE document from FD Nashville Canada
+Utility Module
 """
-def parse_packet(string_value):
-    """parse the hex value packet"""
-    ##############################
-    # check for NULL value
-    ##############################
-    string_count = len(string_value)
-    if string_count <= 1:
-        return "No Value"
 
-    input_text_val = remove_white_spaces(string_value)
-    is_valid = check_valid_hex_val(input_text_val)
-    if(is_valid != "valid"):
-        return is_valid
 
-    # get TPDU
-    output_text = "TPDU: " + input_text_val[:8] + "\r\n"
-
-    return output_text
 
 def check_valid_hex_val(string_value):
     """

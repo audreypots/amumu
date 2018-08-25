@@ -5,7 +5,7 @@ from Tkinter import mainloop
 from Tkinter import Tk
 from Tkinter import END
 from Tkinter import Button
-from modules import module1
+from modules import iso8583
 
 screen = Tk()
 
@@ -18,12 +18,22 @@ outputText = Text(screen, height = 50, width = 48)
 outputText.grid(row=2,column=1)
 
 #TODO: test only
-inputText.insert(END, "400800091122334455667788")
+inputText.insert(END, "40W800091122334455667788")
 
+def parse_packet(string_value):
+    """parse the hex value packet"""
+    iso = iso8583.iso8583()
+    if(iso.unpack(string_value) != "valid"):
+        return iso.error_msg
+
+    # get TPDU
+    #output_text = "TPDU: " + input_text_val[:iso8583.iso8583.TPDU_SIZE] + "\r\n"
+
+    return "test"
 
 def parseButtonPress():
     inputTextVal = inputText.get("1.0", END)
-    parsedText = module1.parse_packet(inputTextVal)
+    parsedText = parse_packet(inputTextVal)
     outputText.delete("1.0", END)
     outputText.insert(END, parsedText)
 
