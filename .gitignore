@@ -1,3 +1,3 @@
-main/*.pyc
-main/modules/*.pyc
+*.pyc
+modules/*.pyc
 tests/*.pyc
