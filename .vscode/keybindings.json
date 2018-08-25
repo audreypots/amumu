@@ -5,13 +5,17 @@
         "command": "shellLauncher.launch"
     },
     {
-        "key": "ctrl+right",
+        "key": "ctrl+shift+right",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+left",
+        "key": "ctrl+shift+left",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "workbench.action.tasks.runTask"
     }
 ]
