@@ -3,7 +3,7 @@ Test module for utility.py
 """
 import sys
 import unittest
-from main.modules import utility
+from modules import utility
 
 class UtilityTest(unittest.TestCase):
     """UtilityTest"""

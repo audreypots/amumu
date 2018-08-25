@@ -6,7 +6,7 @@
         {
             "label": "python unittest discover",
             "type": "shell",
-            "command": "python -m unittest discover",
+            "command": "python -m unittest discover -v",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
@@ -18,9 +18,9 @@
         {
             "label": "python run main",
             "type": "shell",
-            "command": "python main\\ISO_Dual_2.19_DraftE.pyw",
+            "command": "python main\\amumu.pyw",
             "osx": {
-                "command": "python ./main/ISO_Dual_2.19_DraftE.pyw"
+                "command": "python amumu.pyw"
             },
             "presentation": {
                 "echo": false,

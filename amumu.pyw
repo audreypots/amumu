@@ -7,7 +7,11 @@ from Tkinter import END
 from Tkinter import Button
 from modules import iso8583
 
+import sys
+
+print sys.path
 screen = Tk()
+screen.winfo_toplevel().title("ISO Dual 2.19 Draft E - Unpacker")
 
 Label(screen, text="Packet (HEX Value ONLY)").grid(row=0, column=0)
 Label(screen, text="Output").grid(row=0, column=1)
