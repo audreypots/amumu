@@ -9,9 +9,8 @@ from modules import iso8583
 
 import sys
 
-print sys.path
 screen = Tk()
-screen.winfo_toplevel().title("ISO Dual 2.19 Draft E - Unpacker")
+screen.winfo_toplevel().title("ISO Dual 2.19 Draft E - UNPACKER")
 
 Label(screen, text="Packet (HEX Value ONLY)").grid(row=0, column=0)
 Label(screen, text="Output").grid(row=0, column=1)
@@ -30,8 +29,7 @@ def parse_packet(string_value):
     if(iso.unpack(string_value) != "valid"):
         return iso.error_msg
 
-    # get TPDU
-    #output_text = "TPDU: " + input_text_val[:iso8583.iso8583.TPDU_SIZE] + "\r\n"
+    
 
     return "test"
 

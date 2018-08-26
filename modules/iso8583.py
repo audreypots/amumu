@@ -21,7 +21,7 @@ class iso8583(object):
     def __init__(self):
         """Return an empty ISO858 object"""
         self.tpdu = ""
-        self.bitmap = "0000000000000000"
+        self.bitmap = ""
         self.fields = dict()
         self.error_msg = ""
 
@@ -41,4 +41,12 @@ class iso8583(object):
         if(is_valid != "valid"):
             self.error_msg = is_valid
             return "invalid"
+
+        # get TPDU
+        self.tpdu = input_text_val[:self.TPDU_SIZE]
+        input_text_val = input_text_val[self.TPDU_SIZE:]
+        # get Bitmap
+        self.bitmap = input_text_val[:self.BMP_SIZE]
+        input_text_val = input_text_val[self.BMP_SIZE:]
+        
         return return_value
