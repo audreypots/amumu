@@ -49,4 +49,26 @@ class iso8583(object):
         self.bitmap = input_text_val[:self.BMP_SIZE]
         input_text_val = input_text_val[self.BMP_SIZE:]
         
+        #get fields from bitmap and remaining string
+        self.populate_fields(input_text_val)
+
         return return_value
+
+    def populate_fields(self, string_value):
+        #clear fields as we are unpacking a new packet
+        self.fields.clear()
+        
+        #loop through the bitmap
+        field = 1
+        for x in range(0,15):
+            #process bit 1
+            if(int(self.bitmap[x],16) & 8):
+                self.fields[field+0] = ""
+            if(int(self.bitmap[x],16) & 4):
+                self.fields[field+1] = ""
+            if(int(self.bitmap[x],16) & 2):
+                self.fields[field+2] = ""
+            if(int(self.bitmap[x],16) & 1):
+                self.fields[field+3] = ""
+            field += 4
+

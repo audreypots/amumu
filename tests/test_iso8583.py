@@ -15,7 +15,7 @@ class ISO8583Test(unittest.TestCase):
         """tearDown"""
         del self.iso
 
-    def test_iso_initializ_values(self):
+    def test_iso_initialize_val__(self):
         """
         check initial values
         """
@@ -40,7 +40,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack("SS"), "invalid")
         self.assertIsNot(self.iso.error_msg, "valid")
 
-    def test_iso_variable_checkng(self):
+    def test_iso_variable_chk____(self):
         """
         check for parsed values
         that are not fields
@@ -48,3 +48,16 @@ class ISO8583Test(unittest.TestCase):
         self.iso.unpack("123456780000000000000000")
         self.assertEqual(self.iso.tpdu, "12345678")
         self.assertEqual(self.iso.bitmap, "0000000000000000")
+
+    def test_iso_bitmap_fields___(self):
+        """
+        check for fields against bitmap
+        """
+        self.iso.unpack("12345678F000000000000000")
+        self.assertEqual(cmp(self.iso.fields,{1:"",2:"",3:"",4:""}), 0)
+        
+        self.iso.unpack("123456780F00000000000000")
+        self.assertEqual(cmp(self.iso.fields,{5:"",6:"",7:"",8:""}), 0)
+
+        self.iso.unpack("12345678FFF0000000000000")
+        self.assertEqual(cmp(self.iso.fields,{5:"",6:"",7:"",8:""}), 0)
