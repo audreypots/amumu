@@ -26,6 +26,7 @@ class iso8583(object):
         self.bitmap = ""
         self.raw_packet = ""
         self.fields = dict()
+        #TODO: dict of functions/methods for each field
         self.error_msg = ""
 
     def unpack(self, string_value):
@@ -68,6 +69,7 @@ class iso8583(object):
             for y in range(0, 4):
                 if(int(self.bitmap[x], 16) & bit):
                     self.fields[field+y] = ""
+                    #TODO: get actual field value from raw_packet string
                 bit /= 2
             field += 4
 
