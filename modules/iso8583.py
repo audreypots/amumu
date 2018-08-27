@@ -9,11 +9,13 @@ class iso8583(object):
         Attributes:
             tpdu: string tpdu value
             bitmap: string bitmap of the packet
+            raw_packet: string used in loading the fields
             fields: fields set in the bitmap
             error_msg: error output message
         Methods:
             unpack(string): unpack a valid hex value string and assign the fields
             pack: TODO
+            populate_fields: method used to load the fields based on the bitmap
     """
     TPDU_SIZE   = 8
     BMP_SIZE    = 16
@@ -61,17 +63,12 @@ class iso8583(object):
         
         #loop through the bitmap
         field = 1
-        for x in range(0,16):
-            #process bit 1
-            if(int(self.bitmap[x],16) & 8):
-                self.fields[field+0] = ""
-                #string_value = self.get_field(field+0, string_value)
-            if(int(self.bitmap[x],16) & 4):
-                self.fields[field+1] = ""
-            if(int(self.bitmap[x],16) & 2):
-                self.fields[field+2] = ""
-            if(int(self.bitmap[x],16) & 1):
-                self.fields[field+3] = ""
+        for x in range(0, 16):
+            bit = 8
+            for y in range(0, 4):
+                if(int(self.bitmap[x], 16) & bit):
+                    self.fields[field+y] = ""
+                bit /= 2
             field += 4
 
     def load_field2(self, string_value):
