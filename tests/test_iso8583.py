@@ -21,6 +21,7 @@ class ISO8583Test(unittest.TestCase):
         """
         self.assertEqual(self.iso.tpdu, "")
         self.assertEqual(self.iso.bitmap, "")
+        self.assertEqual(self.iso.raw_packet, "")
         self.assertEqual(self.iso.fields, dict())
         self.assertEqual(self.iso.error_msg, "")
 
@@ -52,12 +53,26 @@ class ISO8583Test(unittest.TestCase):
     def test_iso_bitmap_fields___(self):
         """
         check for fields against bitmap
+        no value checking yet
         """
         self.iso.unpack("12345678F000000000000000")
-        self.assertEqual(cmp(self.iso.fields,{1:"",2:"",3:"",4:""}), 0)
+        #self.assertEqual(cmp(self.iso.fields,{1:"",2:"",3:"",4:""}), 0)
+        self.assertTrue(1 in self.iso.fields)
+        self.assertTrue(2 in self.iso.fields)
+        self.assertTrue(3 in self.iso.fields)
+        self.assertTrue(4 in self.iso.fields)
         
         self.iso.unpack("123456780F00000000000000")
-        self.assertEqual(cmp(self.iso.fields,{5:"",6:"",7:"",8:""}), 0)
+        #self.assertEqual(cmp(self.iso.fields,{5:"",6:"",7:"",8:""}), 0)
+        self.assertTrue(5 in self.iso.fields)
+        self.assertTrue(6 in self.iso.fields)
+        self.assertTrue(7 in self.iso.fields)
+        self.assertTrue(8 in self.iso.fields)
 
-        self.iso.unpack("12345678FFF0000000000000")
-        self.assertEqual(cmp(self.iso.fields,{5:"",6:"",7:"",8:""}), 0)
+        self.iso.unpack("12345678100000000000000F")
+        #self.assertEqual(cmp(self.iso.fields,{4: "", 64: "", 63: "", 62: "", 61: ""}), 0)
+        self.assertTrue(4 in self.iso.fields)
+        self.assertTrue(64 in self.iso.fields)
+        self.assertTrue(63 in self.iso.fields)
+        self.assertTrue(62 in self.iso.fields)
+        self.assertTrue(61 in self.iso.fields)

@@ -22,6 +22,7 @@ class iso8583(object):
         """Return an empty ISO858 object"""
         self.tpdu = ""
         self.bitmap = ""
+        self.raw_packet = ""
         self.fields = dict()
         self.error_msg = ""
 
@@ -60,10 +61,11 @@ class iso8583(object):
         
         #loop through the bitmap
         field = 1
-        for x in range(0,15):
+        for x in range(0,16):
             #process bit 1
             if(int(self.bitmap[x],16) & 8):
                 self.fields[field+0] = ""
+                #string_value = self.get_field(field+0, string_value)
             if(int(self.bitmap[x],16) & 4):
                 self.fields[field+1] = ""
             if(int(self.bitmap[x],16) & 2):
@@ -71,4 +73,12 @@ class iso8583(object):
             if(int(self.bitmap[x],16) & 1):
                 self.fields[field+3] = ""
             field += 4
+
+    def load_field2(self, string_value):
+        return_string = ""
+        return return_string
+
+    def load_field3(self, string_value):
+        return_string = ""
+        return return_string
 
