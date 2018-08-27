@@ -9,7 +9,7 @@ class iso8583(object):
         Attributes:
             tpdu: string tpdu value
             bitmap: string bitmap of the packet
-            fields: fieds set in the bimap
+            fields: fields set in the bitmap
             error_msg: error output message
         Methods:
             unpack(string): unpack a valid hex value string and assign the fields

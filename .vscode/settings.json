@@ -3,5 +3,10 @@
     "python.linting.pylintEnabled": true,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "underline",
-    "terminal.integrated.fontSize": 12
+    "terminal.integrated.fontSize": 12,
+    "cSpell.words": [
+        "winfo",
+        "Tkinter",
+        "tpdu"
+    ]
 }
