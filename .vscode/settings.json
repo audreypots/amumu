@@ -5,8 +5,9 @@
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.fontSize": 12,
     "cSpell.words": [
-        "winfo",
+        "LLVAR",
         "Tkinter",
-        "tpdu"
+        "tpdu",
+        "winfo"
     ]
 }
