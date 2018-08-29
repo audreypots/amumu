@@ -1,15 +1,14 @@
 """
 Test module for iso8583.py
 """
-import sys
 import unittest
-from modules.iso8583 import iso8583
+from modules.iso8583 import Iso8583
 
 class ISO8583Test(unittest.TestCase):
     """ISO8583 Test"""
     def setUp(self):
         """setUp"""
-        self.iso = iso8583()
+        self.iso = Iso8583()
 
     def tearDown(self):
         """tearDown"""
@@ -54,7 +53,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertTrue(2 in self.iso.fields)
         self.assertTrue(3 in self.iso.fields)
         self.assertTrue(4 in self.iso.fields)
-        
+
         self.iso.unpack("123456780F00000000000000")
         self.assertTrue(5 in self.iso.fields)
         self.assertTrue(6 in self.iso.fields)
@@ -90,13 +89,13 @@ class ISO8583Test(unittest.TestCase):
         """
         self.iso.raw_packet = "1234567890"
         popped = self.iso.pop_value_in_packet(5)
-        self.assertEquals(popped,"12345")
+        self.assertEquals(popped, "12345")
         self.assertEquals(self.iso.raw_packet, "67890")
         popped = self.iso.pop_value_in_packet(10)
         self.assertEquals(popped, "67890")
         self.assertEquals(self.iso.raw_packet, "")
         #empty raw_packet
-        self.iso.raw_packet =""
+        self.iso.raw_packet = ""
         popped = self.iso.pop_value_in_packet(10)
         self.assertEquals(popped, "")
         self.assertEquals(self.iso.raw_packet, "")
@@ -136,5 +135,4 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.error_msg, "No Value")
         self.assertEqual(self.iso.unpack("SS"), "invalid")
         self.assertIsNot(self.iso.error_msg, "valid")
-        
         

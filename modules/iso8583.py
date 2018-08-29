@@ -3,7 +3,7 @@ ISO8583 Class Object
 """
 import utility
 
-class iso8583(object):
+class Iso8583(object):
     """
     ISO8583 Packet
         Attributes:
@@ -27,9 +27,9 @@ class iso8583(object):
             load_field2: PAN
             load_field3: Processing Code
     """
-    TPDU_SIZE                = 8
-    BMP_SIZE                 = 16
-    PROCESSING_CODE_SIZE     = 6
+    TPDU_SIZE = 8
+    BMP_SIZE = 16
+    PROCESSING_CODE_SIZE = 6
 
     def __init__(self):
         """Return an empty ISO858 object"""
@@ -55,10 +55,9 @@ class iso8583(object):
         if string_count <= 1:
             self.set_errmsg("No Value")
             return "invalid"
-    
         input_text_val = utility.remove_white_spaces(string_value)
         is_valid = utility.check_valid_hex_val(input_text_val)
-        if(is_valid != "valid"):
+        if is_valid != "valid":
             self.set_errmsg(is_valid)
             return "invalid"
 
@@ -68,9 +67,9 @@ class iso8583(object):
         # get Bitmap
         self.bitmap = input_text_val[:self.BMP_SIZE]
         input_text_val = input_text_val[self.BMP_SIZE:]
-        
+
         #get fields from bitmap and remaining string
-        if(self.populate_fields(input_text_val) != "valid"):
+        if self.populate_fields(input_text_val) != "valid":
             return "invalid"
 
         return return_value
@@ -83,12 +82,12 @@ class iso8583(object):
         self.raw_packet = string_value
         #loop through the bitmap
         field = 1
-        for x in range(0, 16):
+        for x_counter in range(0, 16):
             bit = 8
-            for y in range(0, 4):
-                if(int(self.bitmap[x], 16) & bit):
-                    #self.fields[field+y] = ""
-                    if(self.load_field[field+y]() != "valid"):
+            for y_counter in range(0, 4):
+                if int(self.bitmap[x_counter], 16) & bit:
+                    #self.fields[field+y_counter] = ""
+                    if self.load_field[field+y_counter]() != "valid":
                         return "invalid"
                 bit /= 2
             field += 4
@@ -99,11 +98,15 @@ class iso8583(object):
         self.error_msg = string_value
 
     def is_raw_packet_empty(self):
-        if(len(self.raw_packet) > 0):
-            return False
-        return True
+        """check if raw_packet is empty"""
+        if self.raw_packet == "":
+            return True
+        return False
 
     def pop_value_in_packet(self, size):
+        """
+            pop the packet with the given size
+        """
         popped = self.raw_packet[:size]
         self.raw_packet = self.raw_packet[size:]
         return popped
@@ -119,7 +122,7 @@ class iso8583(object):
         result_value = "valid"
         err_msg = "field2"
         #check first if raw_packet has value
-        if(self.is_raw_packet_empty()):
+        if self.is_raw_packet_empty():
             self.set_errmsg(err_msg)
             return "invalid"
         #get LL
@@ -137,18 +140,18 @@ class iso8583(object):
         result_value = "valid"
         err_msg = "field3"
         #check first if raw_packet has value
-        if(self.is_raw_packet_empty()):
+        if self.is_raw_packet_empty():
             self.set_errmsg(err_msg)
             return "invalid"
         #get processing code
         processing_code = self.pop_value_in_packet(self.PROCESSING_CODE_SIZE)
         #check if n 6
-        if(len(processing_code) != self.PROCESSING_CODE_SIZE):
+        if len(processing_code) != self.PROCESSING_CODE_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
         self.fields[3] = processing_code
         return result_value
 
     def load_field4(self):
+        """load field 4"""
         pass
-

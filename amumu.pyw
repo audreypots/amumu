@@ -25,7 +25,7 @@ INPUTTEXT.insert(END, "40W800091122334455667788")
 
 def parse_packet(string_value):
     """parse the hex value packet"""
-    iso = iso8583.iso8583()
+    iso = iso8583.Iso8583()
     if iso.unpack(string_value) != "valid":
         return iso.error_msg
     return "test"

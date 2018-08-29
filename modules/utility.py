@@ -20,7 +20,8 @@ def check_valid_hex_val(string_value):
         elif(letter_in_string_value >= "a" and letter_in_string_value <= "f"):
             continue
         else:
-            return_value = "Invalid Hex Value[" + letter_in_string_value + "] at location[" + str(letter_index) + "]"
+            return_value = "Invalid Hex Value[" + letter_in_string_value
+            return_value += "] at location[" + str(letter_index) + "]"
             break
     return return_value
 
