@@ -30,6 +30,7 @@ class Iso8583(object):
     TPDU_SIZE = 8
     BMP_SIZE = 16
     PROCESSING_CODE_SIZE = 6
+    TRANSACTION_AMOUNT_SIZE = 12
 
     def __init__(self):
         """Return an empty ISO858 object"""
@@ -144,7 +145,8 @@ class Iso8583(object):
             self.set_errmsg(err_msg)
             return "invalid"
         #get processing code
-        processing_code = self.pop_value_in_packet(self.PROCESSING_CODE_SIZE)
+        processing_code = self.pop_value_in_packet(
+            self.PROCESSING_CODE_SIZE)
         #check if n 6
         if len(processing_code) != self.PROCESSING_CODE_SIZE:
             self.set_errmsg(err_msg)
@@ -153,5 +155,19 @@ class Iso8583(object):
         return result_value
 
     def load_field4(self):
-        """load field 4"""
-        pass
+        """load field 4 n 12 Transaction Amount"""
+        result_value = "valid"
+        err_msg = "field4"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get transaction amount
+        transaction_amount = self.pop_value_in_packet(
+            self.TRANSACTION_AMOUNT_SIZE)
+        #check if n 12
+        if len(transaction_amount) != self.TRANSACTION_AMOUNT_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        self.fields[4] = transaction_amount
+        return result_value

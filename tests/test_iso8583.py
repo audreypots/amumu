@@ -48,7 +48,9 @@ class ISO8583Test(unittest.TestCase):
         test for fields against bitmap
         no value checking yet
         """
-        self.iso.unpack("12345678F000000000000000161234567890123456123456")
+        self.iso.unpack(
+            "12345678F000000000000000161234567890123456123456123456789012"
+            )
         self.assertTrue(1 in self.iso.fields)
         self.assertTrue(2 in self.iso.fields)
         self.assertTrue(3 in self.iso.fields)
@@ -117,15 +119,27 @@ class ISO8583Test(unittest.TestCase):
 
     def test_iso_field_3_values__(self):
         """
-        test for field 3
+        test for field 3 (n 6)
         """
-        #processing code, n 6
-        self.iso.unpack("123456782000000000000000123456")
+        self.assertEqual(self.iso.unpack(
+            "123456782000000000000000123456"), "valid")
         self.assertEqual(self.iso.fields.get(3), "123456")
         #negative: n not equal to 6. Field 3 only
         self.assertEqual(self.iso.unpack(
             "123456782000000000000000123"), "invalid")
         self.assertEqual(self.iso.error_msg, "field3")
+
+    def test_iso_field_4_values__(self):
+        """
+        test for field 4
+        """
+        self.assertEqual(self.iso.unpack(
+            "123456781000000000000000000000001000"), "valid")
+        self.assertEquals(self.iso.fields[4], "000000001000")
+        #negative: n not equal to 12. Field 4 only
+        self.assertEqual(self.iso.unpack(
+            "12345678100000000000000000000000100"), "invalid")
+        self.assertEqual(self.iso.error_msg, "field4")
 
     def test_iso_unpack_input_chk(self):
         """
