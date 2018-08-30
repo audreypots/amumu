@@ -23,12 +23,20 @@ class Iso8583(object):
             is_raw_packet_empty: check if raw_packet is empty
                 return: True or False
             pop_value_in_packet: pop value in raw_packet
+            display: display unpacked packet 
+                return: formated fields
+
             FIELD METHODS: Loads the Field and returns valid or invalid
             load_field01: for unit test only
-            load_field02: PAN
-            load_field03: Processing Code
-            load_field04: Transaction Amount
-            load_field11: STAN
+            load_field02: PAN N..19
+            load_field03: Processing Code N 6
+            load_field04: Transaction Amount N 12
+            load_field11: STAN N 6
+            load_field12: Local Transaction Time N 6
+            load_field13: Local Transaction Date N 4
+            load_field14: Expiration Date N 4
+            load_field22: Point of Service Entry Mode N 3 (4)
+            load_field23: EMV Card Sequence Number N 3
 
             load_field63: Private Use
     """
@@ -38,6 +46,11 @@ class Iso8583(object):
     PROCESSING_CODE_SIZE = 6
     TRANSACTION_AMOUNT_SIZE = 12
     STAN_SIZE = 6
+    TIME_SIZE = 6
+    DATE_SIZE = 4
+    EXP_DATE_SIZE = 4
+    POSSEM_SIZE = 4 #3
+    EMV_CARD_SEQ_SIZE = 4 #3 TODO
 
     def __init__(self):
         """Return an empty ISO858 object"""
@@ -52,6 +65,11 @@ class Iso8583(object):
             3: self.load_field03,
             4: self.load_field04,
             11: self.load_field11,
+            12: self.load_field12,
+            13: self.load_field13,
+            14: self.load_field14,
+            22: self.load_field22,
+            23: self.load_field23,
             63: self.load_field63
             })
         self.error_msg = ""
@@ -124,6 +142,16 @@ class Iso8583(object):
         popped = self.raw_packet[:size]
         self.raw_packet = self.raw_packet[size:]
         return popped
+
+    def display(self):
+        #TODO no unit test
+        output_text = "  : " + self.tpdu + "\n  : "
+        output_text += self.msg_type + "\n  : "
+        output_text += self.bitmap + "\n"
+        for key in self.fields:
+            field = str(key)
+            output_text += field.zfill(2) + ": " + self.fields[key] + "\n"
+        return output_text
 
     def load_field01(self):
         """load field1, unittest purposes"""
@@ -202,6 +230,36 @@ class Iso8583(object):
             return "invalid"
         self.fields[11] = stan
         return result_value
+
+    def load_field12(self):
+        """ field 12 n 6 transaction time"""
+        #TODO not really needed
+        self.fields[12] = ""
+        return "valid"
+
+    def load_field13(self):
+        """ field 13 n 4 transaction date"""
+        #TODO not really needed
+        self.fields[13] = ""
+        return "valid"
+
+    def load_field14(self):
+        """ field 14 n 4 expiry date"""
+        #TODO not really needed
+        self.fields[14] = ""
+        return "valid"
+
+    def load_field22(self):
+        """ field 22 n 3 possem (really n 4)"""
+        #TODO not really needed
+        self.fields[22] = ""
+        return "valid"
+
+    def load_field23(self):
+        """ field 23 n 3 EMV card sequence number"""
+        #TODO not really needed
+        self.fields[23] = ""
+        return "valid"
 
     def load_field63(self):
         """load field63, unittest purposes"""

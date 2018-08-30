@@ -149,6 +149,18 @@ class ISO8583Test(unittest.TestCase):
             "1234567890020000200000000000001234"), "invalid")
         self.assertEqual(self.iso.error_msg, "field11")
 
+    def test_iso_field_12_values_(self):
+        """
+        test for field 12
+        """
+        self.assertEqual(self.iso.unpack(
+            "123456789002000020000000000000123456"), "valid")
+        self.assertEquals(self.iso.fields[11], "123456")
+        #negative: n not equal to 6. Field 11 only
+        self.assertEqual(self.iso.unpack(
+            "1234567890020000200000000000001234"), "invalid")
+        self.assertEqual(self.iso.error_msg, "field11")
+
     def test_iso_unpack_input_chk(self):
         """
         test for invalid string values

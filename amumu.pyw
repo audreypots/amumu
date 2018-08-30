@@ -12,12 +12,12 @@ from modules import iso8583
 SCREEN = Tk()
 SCREEN.winfo_toplevel().title("ISO Dual 2.19 Draft E - UNPACKER")
 
-Label(SCREEN, text="Packet (HEX Value ONLY)").grid(row=0, column=0)
+Label(SCREEN, text="HEX Value ONLY & must start with the TPDU").grid(row=0, column=0)
 Label(SCREEN, text="Output").grid(row=0, column=1)
-INPUTTEXT = Text(SCREEN, height=50, width=48)
+INPUTTEXT = Text(SCREEN, height=50, width=70)
 INPUTTEXT.grid(row=2, column=0)
 
-OUTPUTTEXT = Text(SCREEN, height=50, width=48)
+OUTPUTTEXT = Text(SCREEN, height=50, width=70)
 OUTPUTTEXT.grid(row=2, column=1)
 
 #TODO: test only
@@ -29,14 +29,8 @@ def parse_packet(string_value):
     if iso.unpack(string_value) != "valid":
         return iso.error_msg
     
-    #TODO display parsed packet
-    output_text = "  : " + iso.tpdu + "\n  : "
-    output_text += iso.msg_type + "\n  : "
-    output_text += iso.bitmap + "\n"
-    for key in iso.fields:
-        field = str(key)
-        output_text += field.zfill(2) + ": " + iso.fields[key] + "\n"
-    return output_text
+
+    return iso.display()
 
 def parse_button_press():
     """when button is pressed"""
