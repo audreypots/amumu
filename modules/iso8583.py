@@ -8,6 +8,7 @@ class Iso8583(object):
     ISO8583 Packet
         Attributes:
             tpdu: string tpdu value
+            msg_type: string msg_type value
             bitmap: string bitmap of the packet
             raw_packet: string used in loading the fields
             fields: fields set in the bitmap
@@ -23,26 +24,35 @@ class Iso8583(object):
                 return: True or False
             pop_value_in_packet: pop value in raw_packet
             FIELD METHODS: Loads the Field and returns valid or invalid
-            load_field1: for unit test only
-            load_field2: PAN
-            load_field3: Processing Code
+            load_field01: for unit test only
+            load_field02: PAN
+            load_field03: Processing Code
+            load_field04: Transaction Amount
+            load_field11: STAN
+
+            load_field63: Private Use
     """
-    TPDU_SIZE = 8
+    TPDU_SIZE = 10
+    MSG_TYPE_SIZE = 4
     BMP_SIZE = 16
     PROCESSING_CODE_SIZE = 6
     TRANSACTION_AMOUNT_SIZE = 12
+    STAN_SIZE = 6
 
     def __init__(self):
         """Return an empty ISO858 object"""
         self.tpdu = ""
+        self.msg_type = ""
         self.bitmap = ""
         self.raw_packet = ""
         self.fields = dict()
         self.load_field = dict({
-            1: self.load_field1,
-            2: self.load_field2,
-            3: self.load_field3,
-            4: self.load_field4
+            1: self.load_field01,
+            2: self.load_field02,
+            3: self.load_field03,
+            4: self.load_field04,
+            11: self.load_field11,
+            63: self.load_field63
             })
         self.error_msg = ""
 
@@ -65,6 +75,9 @@ class Iso8583(object):
         # get TPDU
         self.tpdu = input_text_val[:self.TPDU_SIZE]
         input_text_val = input_text_val[self.TPDU_SIZE:]
+        # get Message Type
+        self.msg_type = input_text_val[:self.MSG_TYPE_SIZE]
+        input_text_val = input_text_val[self.MSG_TYPE_SIZE:]
         # get Bitmap
         self.bitmap = input_text_val[:self.BMP_SIZE]
         input_text_val = input_text_val[self.BMP_SIZE:]
@@ -112,16 +125,16 @@ class Iso8583(object):
         self.raw_packet = self.raw_packet[size:]
         return popped
 
-    def load_field1(self):
+    def load_field01(self):
         """load field1, unittest purposes"""
         #TODO not really needed
         self.fields[1] = ""
         return "valid"
 
-    def load_field2(self):
+    def load_field02(self):
         """load field2 n..19 PAN, LLVAR"""
         result_value = "valid"
-        err_msg = "field2"
+        err_msg = "field02"
         #check first if raw_packet has value
         if self.is_raw_packet_empty():
             self.set_errmsg(err_msg)
@@ -136,10 +149,10 @@ class Iso8583(object):
         self.fields[2] = pan
         return result_value
 
-    def load_field3(self):
+    def load_field03(self):
         """load field3 n 6 Processing Code"""
         result_value = "valid"
-        err_msg = "field3"
+        err_msg = "field03"
         #check first if raw_packet has value
         if self.is_raw_packet_empty():
             self.set_errmsg(err_msg)
@@ -154,10 +167,10 @@ class Iso8583(object):
         self.fields[3] = processing_code
         return result_value
 
-    def load_field4(self):
+    def load_field04(self):
         """load field 4 n 12 Transaction Amount"""
         result_value = "valid"
-        err_msg = "field4"
+        err_msg = "field04"
         #check first if raw_packet has value
         if self.is_raw_packet_empty():
             self.set_errmsg(err_msg)
@@ -171,3 +184,27 @@ class Iso8583(object):
             return "invalid"
         self.fields[4] = transaction_amount
         return result_value
+
+    def load_field11(self):
+        """load field 11 n 6 STAN"""
+        result_value = "valid"
+        err_msg = "field11"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get STAN
+        stan = self.pop_value_in_packet(
+            self.STAN_SIZE)
+        #check if n 3
+        if len(stan) != self.STAN_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        self.fields[11] = stan
+        return result_value
+
+    def load_field63(self):
+        """load field63, unittest purposes"""
+        #TODO
+        self.fields[63] = ""
+        return "valid"

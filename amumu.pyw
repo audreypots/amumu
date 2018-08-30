@@ -21,14 +21,22 @@ OUTPUTTEXT = Text(SCREEN, height=50, width=48)
 OUTPUTTEXT.grid(row=2, column=1)
 
 #TODO: test only
-INPUTTEXT.insert(END, "40W800091122334455667788")
+INPUTTEXT.insert(END, "123456789002006000000000000000191234567890123456789010203")
 
 def parse_packet(string_value):
     """parse the hex value packet"""
     iso = iso8583.Iso8583()
     if iso.unpack(string_value) != "valid":
         return iso.error_msg
-    return "test"
+    
+    #TODO display parsed packet
+    output_text = "  : " + iso.tpdu + "\n  : "
+    output_text += iso.msg_type + "\n  : "
+    output_text += iso.bitmap + "\n"
+    for key in iso.fields:
+        field = str(key)
+        output_text += field.zfill(2) + ": " + iso.fields[key] + "\n"
+    return output_text
 
 def parse_button_press():
     """when button is pressed"""
