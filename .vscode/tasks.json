@@ -10,7 +10,7 @@
             "presentation": {
                 "echo": false,
                 "reveal": "always",
-                "focus": false,
+                "focus": true,
                 "panel": "dedicated"
             },
             "problemMatcher": []
@@ -25,7 +25,7 @@
             "presentation": {
                 "echo": false,
                 "reveal": "always",
-                "focus": false,
+                "focus": true,
                 "panel": "dedicated"
             },
             "problemMatcher": []
