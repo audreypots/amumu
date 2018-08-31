@@ -388,21 +388,20 @@ class Iso8583(object):
 
     def load_field31(self):
         """load field 31 an..1 acquirer reference data"""
+        #TODO
         result_value = "valid"
         err_msg = "field31"
         #check first if raw_packet has value
         if self.is_raw_packet_empty():
             self.set_errmsg(err_msg)
             return "invalid"
-        #get size first
-        size = int(self_pop)
         #get add pos information
-        acq_ref_data = self.pop_value_in_packet(self.ADD_POS_INFORMATION_SIZE)
+        acq_ref_data = self.pop_value_in_packet(4)
         #check if n 2
-        if len(add_pos_information) != self.ADD_POS_INFORMATION_SIZE:
+        if len(acq_ref_data) != 4:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[27] = add_pos_information
+        self.fields[31] = acq_ref_data
         return result_value
 
     def load_field35(self):
