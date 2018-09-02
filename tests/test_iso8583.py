@@ -103,74 +103,124 @@ class ISO8583Test(unittest.TestCase):
         test for field 2 (n..19) LLVAR
         """
         #19 digit PAN
-        self.iso.unpack("123456789002004000000000000000191234567890123456789")
-        self.assertEqual(self.iso.fields.get(2), "1234567890123456789")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "4000000000000000" #bitmap
+        packet += "18123456789012345678" # PAN
+        self.iso.unpack(packet)
+        self.assertEqual(self.iso.fields[2]['hex_val'], "18123456789012345678")
+        self.assertEqual(self.iso.fields[2]['str_val'], "123456789012345678")
         #16 digit PAN
-        self.iso.unpack("123456789004004000000000000000161234567890123456")
-        self.assertEqual(self.iso.fields.get(2), "1234567890123456")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "4000000000000000" #bitmap
+        packet += " 161234567890123456" # PAN
+        self.iso.unpack(packet)
+        self.assertEqual(self.iso.fields[2]['hex_val'], "161234567890123456")
+        self.assertEqual(self.iso.fields[2]['str_val'], "1234567890123456")
         #negative: LL not equal to len(VAR). Field 2 only
-        self.assertEqual(self.iso.unpack(
-            "12345678900300400000000000000019123456789012345678"), "invalid")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "4000000000000000" #bitmap
+        packet += "19123456789012345678" # PAN
+        self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field02")
+        #For odd lengths, pad on right with Hex F
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "4000000000000000" #bitmap
+        packet += "15371449635398431F" # PAN
+        self.iso.unpack(packet)
+        self.assertEqual(self.iso.fields[2]['hex_val'], "15371449635398431F")
+        self.assertEqual(self.iso.fields[2]['str_val'], "371449635398431")
 
     def test_iso_field_03_values_(self):
         """
-        test for field 3 (n 6)
+        test for field 3 (n 6) processing code
         """
-        self.assertEqual(self.iso.unpack(
-            "123456789002002000000000000000123456"), "valid")
-        self.assertEqual(self.iso.fields.get(3), "123456")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "2000000000000000" #bitmap
+        packet += "123456" #processing code
+        self.assertEqual(self.iso.unpack(packet), "valid")
+        self.assertEqual(self.iso.fields[3]['hex_value'], "123456")
+        self.assertEqual(self.iso.fields[3]['str_value'], "")
         #negative: n not equal to 6. Field 3 only
-        self.assertEqual(self.iso.unpack(
-            "123456789002002000000000000000123"), "invalid")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "2000000000000000" #bitmap
+        packet += "123" #processing code
+        self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field03")
 
     def test_iso_field_04_values_(self):
         """
-        test for field 4
+        test for field 4 n 12 transaction amount
         """
-        self.assertEqual(self.iso.unpack(
-            "123456789002001000000000000000000000001000"), "valid")
-        self.assertEquals(self.iso.fields[4], "000000001000")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "1000000000000000" #bitmap
+        packet += "000000001000" #processing code
+        self.assertEqual(self.iso.unpack(packet), "valid")
+        self.assertEquals(self.iso.fields[4]['hex_val'], "000000001000")
+        self.assertEquals(self.iso.fields[4]['str_val'], "10.00")
         #negative: n not equal to 12. Field 4 only
-        self.assertEqual(self.iso.unpack(
-            "12345678900200100000000000000000000000100"), "invalid")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "1000000000000000" #bitmap
+        packet += "000000001" #transaction amount
+        self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field04")
 
     def test_iso_field_11_values_(self):
         """
-        test for field 11
+        test for field 11 n 6 STAN
         """
-        self.assertEqual(self.iso.unpack(
-            "123456789002000020000000000000123456"), "valid")
-        self.assertEquals(self.iso.fields[11], "123456")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0020000000000000" #bitmap
+        packet += "123456" #processing code
+        self.assertEqual(self.iso.unpack(packet), "valid")
+        self.assertEquals(self.iso.fields[11]['hex_val'], "123456")
+        self.assertEquals(self.iso.fields[11]['str_val'], "123456")
         #negative: n not equal to 6. Field 11 only
-        self.assertEqual(self.iso.unpack(
-            "1234567890020000200000000000001234"), "invalid")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0020000000000000" #bitmap
+        packet += "1234" #stan
+        self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field11")
 
     def test_iso_field_12_values_(self):
         """
-        test for field 12
+        test for field 12 n 6 transaction local time
         """
-        self.assertEqual(self.iso.unpack(
-            "123456789002000010000000000000654321"), "valid")
-        self.assertEquals(self.iso.fields[12], "654321")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0010000000000000" #bitmap
+        packet += "183015" #local time
+        self.assertEqual(self.iso.unpack(packet), "valid")
+        self.assertEquals(self.iso.fields[12]['hex_val'], "183015")
+        self.assertEquals(self.iso.fields[12]['str_val'], "18:30:15")
         #negative: n not equal to 6. Field 12 only
-        self.assertEqual(self.iso.unpack(
-            "1234567890020000100000000000001234"), "invalid")
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0010000000000000" #bitmap
+        packet += "1830" #local time
+        self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field12")
 
     def test_iso_field_13_values_(self):
         """
-        test for field 13
+        test for field 13 n 4 transaction local date
         """
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
         packet += "0008000000000000" #bitmap
         packet += "0831" #field 13
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[13], "0831")
+        self.assertEquals(self.iso.fields[13]['hex_val'], "0831")
+        self.assertEquals(self.iso.fields[13]['str_val'], "08/31")
         #negative: n not equal to 4. Field 13 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type

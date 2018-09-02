@@ -19,6 +19,20 @@ class Iso8583(object):
             pack: TODO
             populate_fields: load the fields based on the bitmap
                 return: valid or invalid
+
+                {field#:
+                    { 
+                        'name': '',
+                        'hex': '',
+                        'value': dict or string,
+                            if dict
+                            {
+                                'name': '',
+                                'hex': '',
+                                'value': dict or string,
+                            }
+
+                    }}
             set_errmsg: set error_msg
             is_raw_packet_empty: check if raw_packet is empty
                 return: True or False
@@ -166,9 +180,14 @@ class Iso8583(object):
         output_text = "  : " + self.tpdu + "\n  : "
         output_text += self.msg_type + "\n  : "
         output_text += self.bitmap + "\n"
-        for key in self.fields:
-            field = str(key)
-            output_text += field.zfill(2) + ": " + self.fields[key] + "\n"
+        #for key in self.fields:
+        #    field = str(key)
+        #    output_text += field.zfill(2) + ": " + self.fields[key] + "\n"
+        #for key in self.fields:
+        #    if type(key) == dict:
+        #        output_text += 
+        #        for key2 in key:
+
         return output_text
 
     def load_field01(self):
@@ -187,12 +206,18 @@ class Iso8583(object):
             return "invalid"
         #get LL
         size = int(self.pop_value_in_packet(2))
+        hex_size = size
+        #check if odd
+        if (size % 2) != 0:
+            size += 1
         #get VAR
         pan = self.pop_value_in_packet(size)
-        if len(pan) < size:
+        if len(pan) < hex_size:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[2] = pan
+        hex_string = str(hex_size) + pan
+        string_string = pan[:hex_size]
+        self.fields[2] = dict({'hex': hex_string, 'string': string_string})
         return result_value
 
     def load_field03(self):
