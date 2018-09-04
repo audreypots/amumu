@@ -62,6 +62,7 @@ class Iso8583(object):
 
             load_field63: Private Use
     """
+    #Sizes
     TPDU_SIZE = 10
     MSG_TYPE_SIZE = 4
     BMP_SIZE = 16
@@ -76,6 +77,10 @@ class Iso8583(object):
     NII_SIZE = 4 #3
     POS_CONDITION_CODE_SIZE = 2
     ADD_POS_INFORMATION_SIZE = 2
+
+    #Field names
+    FIELD02_NAME = "PAN"
+    FIELD03_NAME = "Processing Code"
 
     def __init__(self):
         """Return an empty ISO858 object"""
@@ -215,9 +220,15 @@ class Iso8583(object):
         if len(pan) < hex_size:
             self.set_errmsg(err_msg)
             return "invalid"
-        hex_string = str(hex_size) + pan
-        string_string = pan[:hex_size]
-        self.fields[2] = dict({'hex_val': hex_string, 'str_val': string_string})
+        hex_val = str(hex_size) + pan
+        str_val = pan[:hex_size]
+        self.fields[2] = dict(
+            {
+                'name': self.FIELD02_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field03(self):
@@ -235,7 +246,15 @@ class Iso8583(object):
         if len(processing_code) != self.PROCESSING_CODE_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[3] = processing_code
+        hex_val = processing_code
+        str_val = ""
+        self.fields[3] = dict(
+            {
+                'name': self.FIELD03_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field04(self):
