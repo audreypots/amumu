@@ -238,7 +238,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0004000000000000" #bitmap
         packet += "0820" #field 14
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[14], "0820")
+        self.assertEquals(self.iso.fields[14]['hex_val'], "0820")
+        self.assertEquals(self.iso.fields[14]['str_val'], "08/20")
         #negative: n not equal to 4. Field 14 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -256,7 +257,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000040000000000" #bitmap
         packet += "0051" #field 22
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[22], "0051")
+        self.assertEquals(self.iso.fields[22]['hex_val'], "0051")
+        self.assertEquals(self.iso.fields[22]['str_val'], "")
         #negative: n not equal to 4 (3 in specs). Field 22 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -274,7 +276,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000020000000000" #bitmap
         packet += "0001" #field 23
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[23], "0001")
+        self.assertEquals(self.iso.fields[23]['hex_val'], "0001")
+        self.assertEquals(self.iso.fields[23]['str_val'], "")
         #negative: n not equal to 4 (3 in specs). Field 23 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -292,7 +295,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000010000000000" #bitmap
         packet += "0048" #field 24
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[24], "0048")
+        self.assertEquals(self.iso.fields[24]['hex_val'], "0048")
+        self.assertEquals(self.iso.fields[24]['str_val'], "")
         #negative: n not equal to 3 (3 in specs). Field 24 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -310,7 +314,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000008000000000" #bitmap
         packet += "00" #field 25
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[25], "00")
+        self.assertEquals(self.iso.fields[25]['hex_val'], "00")
+        self.assertEquals(self.iso.fields[25]['str_val'], "")
         #negative: n not equal to 2. Field 25 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -328,7 +333,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000002000000000" #bitmap
         packet += "00" #field 27
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[27], "00")
+        self.assertEquals(self.iso.fields[27]['hex_val'], "00")
+        self.assertEquals(self.iso.fields[27]['str_val'], "")
         #negative: n not equal to 2. Field 27 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -346,7 +352,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000000200000000" #bitmap
         packet += "0131" #field 31
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[31], "0131")
+        self.assertEquals(self.iso.fields[31]['hex_val'], "0131")
+        self.assertEquals(self.iso.fields[31]['str_val'], "1")
         #negative: .. not 4
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -364,7 +371,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000000020000000" #bitmap
         packet += "295435560000000007D120810123456F" #field 35 #TODO
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[35], "5435560000000007D120810123456F")
+        self.assertEquals(self.iso.fields[35]['hex_val'], "5435560000000007D120810123456F")
+        self.assertEquals(self.iso.fields[35]['str_val'], "") #TODO
         #negative: not z ..37
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type

@@ -217,7 +217,7 @@ class Iso8583(object):
             return "invalid"
         hex_string = str(hex_size) + pan
         string_string = pan[:hex_size]
-        self.fields[2] = dict({'hex': hex_string, 'string': string_string})
+        self.fields[2] = dict({'hex_val': hex_string, 'str_val': string_string})
         return result_value
 
     def load_field03(self):
