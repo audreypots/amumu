@@ -21,7 +21,7 @@ class Iso8583(object):
                 return: valid or invalid
 
                 {field#:
-                    { 
+                    {
                         'name': '',
                         'hex': '',
                         'value': dict or string,
@@ -205,7 +205,7 @@ class Iso8583(object):
         #    output_text += field.zfill(2) + ": " + self.fields[key] + "\n"
         #for key in self.fields:
         #    if type(key) == dict:
-        #        output_text += 
+        #        output_text +=
         #        for key2 in key:
 
         return output_text
@@ -289,7 +289,8 @@ class Iso8583(object):
             return "invalid"
         hex_val = transaction_amount
         transaction_amount = str(int(transaction_amount))
-        str_val = transaction_amount[:(len(transaction_amount) - 2)] + "." + transaction_amount[len(transaction_amount)-2:]
+        str_val = transaction_amount[:(len(transaction_amount) - 2)]
+        str_val += "." + transaction_amount[len(transaction_amount)-2:]
         self.fields[4] = dict(
             {
                 'name': self.FIELD04_NAME,
@@ -450,7 +451,7 @@ class Iso8583(object):
         return result_value
 
     def load_field24(self):
-        """load field 24 n 4 (3 in specs) 
+        """load field 24 n 4 (3 in specs)
         network international identifier
         """
         result_value = "valid"
