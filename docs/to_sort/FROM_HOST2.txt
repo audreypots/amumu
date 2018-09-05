@@ -1,0 +1,1309 @@
+At August 22, 2018 12:31:25.6699 AM
+Type PT-1 Label D1__ refnum 00RJLQ20     Format ISO-Nash 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+FORMAT: ISO-Nash
+
+ Message Type   : 0200
+ Bit Map 1            : 703c05a200c00806
+  Data Bits set are   : 002,003,004,011,012,013,014,022,024,025,027,031,041,042,053,062,063,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 004000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 011 Sys Trace Audit Bill   (len   6): 001237
+Pos 012 Time, Local Trans      (len   6): 213048
+Pos 013 Date, Local Trans      (len   4): 0821
+Pos 014 Date, Expiration       (len   4): 2604
+Pos 022 POS Entry Mode         (len   3): 011
+Pos 024 Network Int Ident      (len   3): 048
+Pos 025 POS Condition Code     (len   2): 00
+Pos 027 Additional POS Info    (len   2): 75
+Pos 031 ACQ Inst Ref Data      (len   1): 1
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID (Merch) (len  15): 000000000423483
+Pos 053 Security Control Info  (len  16): 1807152344340000
+Pos 062 Invoice Number         (len   6): 000438
+Pos 063
+
+    Table ID : 54
+        Zip Code              (len   9): 11714    
+        Address               (len  20): 17171               
+
+    Table ID : 66
+        Card Type ID           (len   2): 02
+
+    Table ID : 90
+        Version Number        (len   1): 2
+        Balance Info Capable  (len   1): 1
+        Partial Auth Capable  (len   1): 1
+
+    Table ID : 93
+        Version               (len   2): 01
+
+        Nbr of AUAR           (len   1): 1
+
+        Visa ID (Hex)         (len   2):   
+        Visa BID              (len   5):      
+        Visa AUAR (Hex)       (len  12):             
+        FDMS TPP ID           (len   6): F03501
+
+    Table ID : SD
+        (TC) Terminal Capability   (len  15)    700111100001000
+        (CN) Customer Ref Number   (len  13)                 
+
+
+At August 22, 2018 12:31:25.6757 AM
+Type MTSS Label D1__ refnum 00RJLQ20     Format Unknown 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  200020
+Primary Merc Id     :  
+Default Merc Id     :  
+Terminal Id         :  01383819000999999999999999
+Merchant Status     :  01   (CLIENT SENT)
+Terminal Status     :  01   (CLIENT SENT)
+
+
+At August 22, 2018 12:31:25.6769 AM
+Type MTSR Label D1__ refnum 00RJLQ20     Format ISO-Nash 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  200020
+Primary Merc Id     :  000000318320298991
+Default Merc Id     :  
+Terminal Id         :  01383819000999999999999999
+Merchant Status     :  03   (SUCCESS)
+Terminal Status     :  03   (SUCCESS)
+
+
+At August 22, 2018 12:31:25.6774 AM
+Type AFLS Label D1__ refnum 00RJLQ20     Format Unknown 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+Systrace            :  200020
+Echo Field          :  5812
+Account Number      :  0004012000033330026
+Merchant Number     :  000318320298991
+ADI Value           :  DATW
+OCT indicator       :  0
+
+
+At August 22, 2018 12:31:25.6790 AM
+Type AFLR Label D1__ refnum 00RJLQ20     Format Unknown 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+Systrace            :  200020
+Echo Field          :  5812
+Account Number      :  0004012000033330026
+Merchant Number     :  000318320298991
+ADI Value           :  DATW
+OCT indicator       :  0
+Lookup Response     :  0000
+
+
+At August 22, 2018 12:31:25.6799 AM
+Type PT-2 Label D1__ refnum 00RJLQ20     Format Visa 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : SVI1
+
+ Message Type         : 0100
+ Bit Map 1            : f224648108e08036
+  Data Bits set are   : 001,002,003,004,007,011,014,018,019,022,025,032,037,041,042,043,049,059,060,062,063,
+ Bit Map 2            : 0000000000000020
+  Data Bits set are   : 123,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 007 Trans Date and Time    (len  10): 0822043125
+Pos 011 Sys Trace Audit Bill   (len   6): 200020
+Pos 014 Date, Expiration       (len   4): 2604
+Pos 018 Merchant Type          (len   4): 7372
+Pos 019 ACQ Inst Country Code  (len   4): 0124
+Pos 022 POS Entry Mode         (len   4): 0110
+Pos 025 POS Condition Code     (len   2): 08
+Pos 032 ACQ Inst Ident Code    (len   6): 445077
+Pos 037 Retreival Reference No (len  12): 823404200020
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 043 Card Accept Name/LOC   (len  40): GREEN#MOUNTAIN#E-TRADI###RICHMOND#####CA
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 059 National POS GEO Data  (len  12): 61000V7A#5J7
+Pos 060 Additional POS info    
+    1. Terminal Type             (len 1): 7
+    2. Terminal Entry Cap        (len 1): 5
+    3. Chip Condition Code       (len 1): 0
+    4. Debt Ind                  (len 1): 0
+  5/6. Merchant Group ID         (len 2): 00
+    7. Chip Transaction Ind      (len 1): 0
+    8. Chip Card Reliability Ind (len 1): 0
+ 9/10. Electr Commerce Ind       (len 2): 00
+   11. Cardholder ID Method      (len 1): 0
+   12. Partial Auth Ind          (len 1): 1
+Pos 062 Payment Service field 
+   POS 62 Bit map is: 80000000
+   Data Bits set are   : 001,
+   Fld 62 Pos 001 Auth Char Indicator    (len   1): Y
+Pos 063 Debit Private Use      
+   POS 63 Bit map is: 800000
+   Data Bits set are   : 001,
+   Fld 63 Pos 001 Network ID             (len   4): 0000
+Pos 123 TLV field   (len 17):
+    Dataset ID 66 Length    (len 14)  
+      Postal Code             (len  5): 11714  
+      Postal Address          (len  5): 17171  
+
+
+At August 22, 2018 12:31:26.2560 AM
+Type PT-3 Label D1__ refnum 00RJLQ20     Format Visa 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : SVI1
+
+ Message Type         : 0110
+ Bit Map 1            : 722000010ed08004
+  Data Bits set are   : 002,003,004,007,011,032,037,038,039,041,042,044,049,062,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 007 Trans Date and Time    (len  10): 0822043125
+Pos 011 Sys Trace Audit Bill   (len   6): 200020
+Pos 032 ACQ Inst Ident Code    (len   6): 412700
+Pos 037 Retreival Reference No (len  12): 823404200020
+Pos 038 Auth Id Response       (len   6): OK660C
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 044 Additional Resp Data   (len   2): #M
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 062 Payment Service field 
+   POS 62 Bit map is: E0000200
+   Data Bits set are   : 001,002,003,023,
+   Fld 62 Pos 001 Auth Char Indicator    (len   1): V
+   Fld 62 Pos 002 Transaction Id         (len  16): 0018234409026649
+   Fld 62 Pos 003 Validation Code        (len   4): G772
+   Fld 62 Pos 023 Card Level Results     (len   2): C#
+
+
+At August 22, 2018 12:31:26.2571 AM
+Type PT-2 Label D1__ refnum 00RJLQ20     Format hdcn_iso 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : HDCW
+Header data length   : 169
+Subsystem ID         : HA ( 03) : SND
+Terminal ID          : H$ ( 08) : 01383819
+Function Code        : HB ( 08) : WRITED##
+Units of Work        : HC ( 03) : 001
+Hardware Route ID    : HG ( 04) : TNML
+Gateway Batch ID     : HH ( 13) : #############
+Settlement Type      : HI ( 08) : RISCNAST
+Close Term Type RJE  : HM ( 01) : H
+Batch Date           : HP ( 14) : 08222018003125
+Ticket Number        : HQ ( 10) : 0000000438
+Batch File Seq No.   : H1 ( 08) : 00000000
+Tracker ID           : H4 ( 16) : 1205349122865239
+HDC Capture Mode     : HV ( 21) : NETX####0110#00RJLQ20
+
+
+Message Length   : 1137
+Message Type     : 1304
+ Bit Map 1            : F23465800ED0C80A
+  Data Bits set are   : 001,002,003,004,007,011,012,014,018,019,022,024,025,037,038,039,041,042,044,049,050,053,061,063,
+ Bit Map 2            : 0000000000014000
+  Data Bits set are   : 112,114,
+(  2) Primary Acct Nbr       :( 16) 4012000033330026
+(  3) Processing Code        :  000000
+(  4) Transaction Amt        :  000000000499
+(  7) Transmission Date      :  0822043125
+( 11) SysTrace Audit Nbr     :  200020
+( 12) Local Transaction Date :  180822003048
+( 14) Expiration Date        :  2604
+( 18) Merchant Type          :  7372
+( 19) Acq. Country Code      :  124
+( 22) POS Entry Mode         :  011
+( 24) Network Int Ident      :  048
+( 25) POS Condition Code     :  0008
+( 37) Ret. Reference Nbr     :  ####16396420
+( 38) Approval Code          :  OK660C
+( 39) Response Code          :  000
+( 41) Card Accpt Term ID     :  01383819
+( 42) Card Accpt ID Code     :  000318320298991
+( 44) Additional Resp Data   :(  1) 0
+( 49) Trans Currency Code    :  124
+( 50) Merch Base Currency    :  124
+( 61) Reserved for Natl Use  :( 11) 20002037829
+( 63) Number of 1604 ISO Msgs:(  1) 5
+(112) Rev Original Data      :(140) 0100#.020822.03043125.
+                                   04200020.058234042000
+                                   20.06V.07018234409026
+                                   649.09003048.100822.1
+                                   7000016396420.27C#.31
+                                   OK660C.422604.4508222
+                                   018.460031256
+(114) Trans Cat Code         :  R
+
+Message Type     : 1604
+ Bit Map 1            : 8E28000000000400
+  Data Bits set are   : 001,005,006,007,011,013,054,
+ Bit Map 2            : 0003980000000000
+  Data Bits set are   : 079,080,081,084,085,
+(  5) Addendum Record       :(  7) 001201N
+(  6) EDC Trans Code        :  11
+(  7) EDC Sales Date        :  0822
+( 11) EDC Ticket Number     :  000438####
+( 13) EDC Credit/Debit Ind  :  #
+( 54) M/C Merc Postal Code  :  V7A#5J7000
+( 79) CPS Auth. Char. Ind   :  V
+( 80) CPS Transaction Ident :  018234409026649
+( 81) CPS Validation Code   :  G772
+( 84) CPS First Auth Amt    :  000000000499
+( 85) CPS Total Auth Amt    :  000000000499
+
+Message Type     : 1604
+ Bit Map 1            : 900E00002BD00005
+  Data Bits set are   : 001,004,013,014,015,035,037,039,040,041,042,044,062,064,
+ Bit Map 2            : 0019624500004682
+  Data Bits set are   : 076,077,080,082,083,087,090,094,096,114,118,119,121,127,
+(  4) DM AVS Response Code  :  M
+( 13) Det - Approval Code   :  OK660C##
+( 14) Service Provider ID   :  00002
+( 15) Switch Response Code  :  000
+( 35) Commercial Card Type  :  04
+( 37) Electron Commerce Ind :  00
+( 39) Delete Point Of Origin:  D
+( 40) WATS Indicator        :  N
+( 41) Terminal Systrace     :  001237
+( 42) Transponder Indicator :  0
+( 44) Payment Serv Rqst Flag:  #
+( 62) Debt Indicator        :  0
+( 64) HDC Version           :  S0006
+( 76) Terminal Slot Nbr     :  02
+( 77) Direct Route Indc.    :  #
+( 80) Network Response Code :  00#
+( 82) AVS Zip Code          :  11714####
+( 83) AVS Address           :  17171#################
+                                   ##################
+( 87) Deferred Billing Ind  :  0
+( 90) Derived SW Response CD:  A
+( 94) Detail Tracker ID     :  1205349122865239
+( 96) Authorization Origin  :  #
+(114) Terminal Proc Code    :  004000
+(118) Original Terminal Data:( 20) 102000001104########
+(119) Front End Code        :  N
+(121) HDC Response Code     :  000
+(127) Alpha Country Code    :  CAN
+
+Message Type     : 1604
+ Bit Map 1            : 0000000000000000
+  Data Bits set are   : 
+
+Message Type     : 1604
+ Bit Map 1            : FFDFEF9EEC1FFC00
+  Data Bits set are   : 001,002,003,004,005,006,007,008,009,010,012,013,014,015,016,017,018,019,021,022,023,024,025,028,029,030,031,033,034,035,037,038,044,045,046,047,048,049,050,051,052,053,054,
+ Bit Map 2            : 7600000008850302
+  Data Bits set are   : 066,067,068,070,071,101,105,110,112,119,120,127,
+(  2) Record Type           :  01
+(  3) Reference Number      :  00RJLQ
+(  4) Site Number           :  20
+(  5) Authorization Date    :  08222018
+(  6) Time Recv Merchant    :  0031256
+(  7) Time Sent Merchant    :  0000000
+(  8) Time Sent Association :  0031256
+(  9) Time Recv Association :  0031262
+( 10) Currency Code         :  124
+( 12) Merchant Port         :  D1__
+( 13) Xpanded Leased Line ID:  0736
+( 14) POS Indicator         :  5
+( 15) POS Type              :  0
+( 16) External Merchant No  :  000000000000000000
+( 17) MC Promo Code         :  ######
+( 18) Transaction Type      :  00
+( 19) Association Port      :  ####
+( 21) Service Entitlement No:  000082413420019
+( 22) Billing Code          :  M
+( 23) EDC Capture Indicator :  Y
+( 24) Internal Result Code  :  00
+( 25) Country Code          :  124
+( 28) Job Stream ID         :  2
+( 29) Platform Code         :  ##
+( 30) MIS Association Code  :  30
+( 31) CPS ACI Presented     :  Y
+( 33) Sec Assoc Time Sent   :  0000000
+( 34) Sec Assoc Time Recv   :  0000000
+( 35) Sec Association ID    :  30
+( 37) MC Presence Indicator :  #
+( 38) Recurring Payment Ind :  N
+( 44) Acquiring BIN         :  445077
+( 45) Acquiring ICA         :  010364
+( 46) Terminal Lookup ID    :  Y
+( 47) Transition Flag       :  R
+( 48) Version Number        :  15#
+( 49) HDC Indicator         :  1
+( 50) Folio Number          :  000438####
+( 51) Voice Operator Number :  ###
+( 52) Voice Transaction Code:  ##
+( 53) Voice Merchant ID     :  #####
+( 54) Host Capture Action   :  ##########
+( 66) Merch Street Addr     :  135#-#11300#NO.#5#ROAD
+                                   ###
+( 67) Merch City            :  RICHMOND############
+( 68) Merch State           :  BC
+( 70) Merch Name            :  GREEN#MOUNTAIN#E-TRADI
+                                   ########
+( 71) TPP ID                :  F03501
+(101) TPP MATCH IND         :  V
+(105) Card Level Results    :  C#
+(110) Partial Auth Indicator:  1
+(112) Cloud Total Auth      :  000000000499
+(119) Additional POS Info   :  750000000001
+(120) Switch Msg Type       :  0100
+(127) ASSOC RRN             :  823404200020
+
+Message Type     : 1604
+ Bit Map 1            : 8000300120000000
+  Data Bits set are   : 001,019,020,032,035,
+ Bit Map 2            : E000000000000000
+  Data Bits set are   : 065,066,067,
+( 19) MC Device Type Ind    :  00
+( 20) Terminal Capture Type :  045
+( 32) Terminal Capabilities :( 15) 700111100001000
+( 35) ADI Value             :(  4) DATW
+( 65) Intl Proc Code        :(  7) 0000000
+( 66) HOPS part 1           :( 91) 5244315f5f5b7ce71d000940cf534d5453315b7ce71d
+                                   000a4f6b524d5453315b7ce71d000a541e5241464c
+                                   315b7ce71d000a5c815354464d525b7ce71d000a5c
+                                   d65254464d525b7ce71d000a5ff153535649315b7c
+                                   e71d000a601d
+   00          Recv'd D1__ at 08/22/18 00:31:25.6064
+   01          Send   MTS1 at 08/22/18 00:31:25.6756
+   02          Recv'd MTS1 at 08/22/18 00:31:25.6768
+   03          Recv'd AFL1 at 08/22/18 00:31:25.6790
+   04          Send   TFMR at 08/22/18 00:31:25.6791
+   05          Recv'd TFMR at 08/22/18 00:31:25.6799
+   06          Send   SVI1 at 08/22/18 00:31:25.6799
+( 67) HOPS part 2           :( 39) 52535649315b7ce71e0003e1765354464d525b7ce71e
+                                   0003e1a45254464d525b7ce71e0003e330
+   00          Recv'd SVI1 at 08/22/18 00:31:26.2543
+   01          Send   TFMR at 08/22/18 00:31:26.2543
+   02          Recv'd TFMR at 08/22/18 00:31:26.2547
+
+
+At August 22, 2018 12:31:26.3345 AM
+Type PT-3 Label D1__ refnum 00RJLQ20     Format hdcn_iso 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : HDCW
+Header data length   : 169
+Subsystem ID         : HA ( 03) : SND
+Terminal ID          : H$ ( 08) : 01383819
+Function Code        : HB ( 08) : WRITED##
+Units of Work        : HC ( 03) : 001
+Hardware Route ID    : HG ( 04) : TNML
+Gateway Batch ID     : HH ( 13) : #############
+Settlement Type      : HI ( 08) : RISCNAST
+Close Term Type RJE  : HM ( 01) : H
+Batch Date           : HP ( 14) : 08222018003125
+Ticket Number        : HQ ( 10) : 0000000438
+Batch File Seq No.   : H1 ( 08) : 04350500
+Tracker ID           : H4 ( 16) : 1205349122865239
+HDC Capture Mode     : HV ( 21) : NETXS00#0110#00RJLQ20
+
+
+Message Length   :   56
+Message Type     : 1314
+ Bit Map 1            : 0000000002E00008
+  Data Bits set are   : 039,041,042,043,061,
+( 39) Response Code          :  300
+( 41) Card Accpt Term ID     :  01383819
+( 42) Card Accpt ID Code     :  000318320298991
+( 43) Logical TID            :  ####
+( 61) Reserved for Natl Use  :( 11) 20002037829
+
+
+At August 22, 2018 12:31:26.4350 AM
+Type PT-4 Label D1__ refnum 00RJLQ20     Format ISO-Nash 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+ Message Type   : 0210
+ Bit Map 1            : 303801000e800002
+  Data Bits set are   : 003,004,011,012,013,024,037,038,039,041,063,
+Pos 003 Processing code        (len   6): 004000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 011 Sys Trace Audit Bill   (len   6): 001237
+Pos 012 Time, Local Trans      (len   6): 213126
+Pos 013 Date, Local Trans      (len   4): 0821
+Pos 024 Network Int Ident      (len   3): 048
+Pos 037 Retreival Reference No (len  12): 000016396420
+Pos 038 Auth Id Response       (len   6): OK660C
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 063
+
+    Table ID : 20
+        Returned ACI           (len   1): V
+        Transaction ID         (len  15): 018234409026649
+        Validation Code        (len   4): G772
+        ACI                    (len   1): V
+        Market Specific Ind    (len   1):  
+        POS Entry Mode         (len   2): 01
+
+    Table ID : 55
+        Address Match         (len   1): Y
+        ZIP Match             (len   1): Y
+        Avs Native Resp Code  (len   1): M
+
+    Table ID : SD
+        (XX) Random Test Tag XX    (len   2)    YD
+        (TC) Terminal Capability   (len  15)    700111100001000
+
+
+At August 22, 2018 12:31:55.4334 AM
+Type PT-1 Label D1__ refnum 00RJM720     Format ISO-Nash 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+FORMAT: ISO-Nash
+
+ Message Type   : 0400
+ Bit Map 1            : 702405a200c00806
+  Data Bits set are   : 002,003,004,011,014,022,024,025,027,031,041,042,053,062,063,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 004000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 011 Sys Trace Audit Bill   (len   6): 001237
+Pos 014 Date, Expiration       (len   4): 2604
+Pos 022 POS Entry Mode         (len   3): 011
+Pos 024 Network Int Ident      (len   3): 048
+Pos 025 POS Condition Code     (len   2): 00
+Pos 027 Additional POS Info    (len   2): 75
+Pos 031 ACQ Inst Ref Data      (len   1): 1
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID (Merch) (len  15): 000000000423483
+Pos 053 Security Control Info  (len  16): 1807152344340000
+Pos 062 Invoice Number         (len   6): 000438
+Pos 063
+
+    Table ID : 66
+        Card Type ID           (len   2): 02
+
+
+At August 22, 2018 12:31:55.4336 AM
+Type MTSS Label D1__ refnum 00RJM720     Format Unknown 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  200021
+Primary Merc Id     :  
+Default Merc Id     :  
+Terminal Id         :  01383819000999999999999999
+Merchant Status     :  01   (CLIENT SENT)
+Terminal Status     :  01   (CLIENT SENT)
+
+
+At August 22, 2018 12:31:55.4345 AM
+Type MTSR Label D1__ refnum 00RJM720     Format ISO-Nash 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  200021
+Primary Merc Id     :  000000318320298991
+Default Merc Id     :  
+Terminal Id         :  01383819000999999999999999
+Merchant Status     :  03   (SUCCESS)
+Terminal Status     :  03   (SUCCESS)
+
+
+At August 22, 2018 12:31:55.4783 AM
+Type PT-2 Label D1__ refnum 00RJM720     Format Visa 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : SVI1
+
+ Message Type         : 0400
+ Bit Map 1            : f22464810ce08036
+  Data Bits set are   : 001,002,003,004,007,011,014,018,019,022,025,032,037,038,041,042,043,049,059,060,062,063,
+ Bit Map 2            : 0000004000000000
+  Data Bits set are   : 090,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 007 Trans Date and Time    (len  10): 0822043155
+Pos 011 Sys Trace Audit Bill   (len   6): 200020
+Pos 014 Date, Expiration       (len   4): 2604
+Pos 018 Merchant Type          (len   4): 7372
+Pos 019 ACQ Inst Country Code  (len   4): 0124
+Pos 022 POS Entry Mode         (len   4): 0110
+Pos 025 POS Condition Code     (len   2): 00
+Pos 032 ACQ Inst Ident Code    (len   6): 445077
+Pos 037 Retreival Reference No (len  12): 823404200020
+Pos 038 Auth Id Response       (len   6): OK660C
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 043 Card Accept Name/LOC   (len  40): GREEN#MOUNTAIN#E-TRADI###RICHMOND#####CA
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 059 National POS GEO Data  (len  12): 61000V7A#5J7
+Pos 060 Additional POS info    
+    1. Terminal Type             (len 1): 7
+    2. Terminal Entry Cap        (len 1): 5
+    3. Chip Condition Code       (len 1): 0
+    4. Debt Ind                  (len 1): 0
+  5/6. Merchant Group ID         (len 2): 00
+    7. Chip Transaction Ind      (len 1): 0
+    8. Chip Card Reliability Ind (len 1): 0
+ 9/10. Electr Commerce Ind       (len 2): 00
+   11. Cardholder ID Method      (len 1): 0
+   12. Partial Auth Ind          (len 1): 0
+Pos 062 Payment Service field 
+   POS 62 Bit map is: C0000200
+   Data Bits set are   : 001,002,023,
+   Fld 62 Pos 001 Auth Char Indicator    (len   1): V
+   Fld 62 Pos 002 Transaction Id         (len  16): 0018234409026649
+   Fld 62 Pos 023 Card Level Results     (len   2): C#
+Pos 063 Debit Private Use      
+   POS 63 Bit map is: A00000
+   Data Bits set are   : 001,003,
+   Fld 63 Pos 001 Network ID             (len   4): 0000
+   Fld 63 Pos 003 Message Reason Code    (len   4): 2502
+Pos 090 Original Data Elements (len  42): 010020002008220431250000044507700000000000
+
+
+At August 22, 2018 12:31:55.4788 AM
+Type PT-2 Label D1__ refnum 00RJM720     Format hdcn_iso 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : HDCW
+Header data length   : 152
+Subsystem ID         : HA ( 03) : SND
+Terminal ID          : H$ ( 08) : 01383819
+Function Code        : HB ( 08) : DELETED#
+Units of Work        : HC ( 03) : 001
+Hardware Route ID    : HG ( 04) : TNML
+Settlement Type      : HI ( 08) : RISCNAST
+Close Term Type RJE  : HM ( 01) : H
+Batch Date           : HP ( 14) : 08222018003155
+Ticket Number        : HQ ( 10) : 0000000438
+Batch File Seq No.   : H1 ( 08) : 00000000
+Tracker ID           : H4 ( 16) : 1205349123155241
+HDC Capture Mode     : HV ( 21) : NETX####0410#00RJM720
+
+
+Message Length   :  875
+Message Type     : 1304
+ Bit Map 1            : F23465800ED0C80A
+  Data Bits set are   : 001,002,003,004,007,011,012,014,018,019,022,024,025,037,038,039,041,042,044,049,050,053,061,063,
+ Bit Map 2            : 0000000000024000
+  Data Bits set are   : 111,114,
+(  2) Primary Acct Nbr       :( 16) 4012000033330026
+(  3) Processing Code        :  000000
+(  4) Transaction Amt        :  000000000499
+(  7) Transmission Date      :  0822043155
+( 11) SysTrace Audit Nbr     :  200021
+( 12) Local Transaction Date :  180822003048
+( 14) Expiration Date        :  2604
+( 18) Merchant Type          :  7372
+( 19) Acq. Country Code      :  124
+( 22) POS Entry Mode         :  011
+( 24) Network Int Ident      :  048
+( 25) POS Condition Code     :  0000
+( 37) Ret. Reference Nbr     :  ####16396420
+( 38) Approval Code          :  OK660C
+( 39) Response Code          :  205
+( 41) Card Accpt Term ID     :  01383819
+( 42) Card Accpt ID Code     :  000318320298991
+( 44) Additional Resp Data   :(  1) 0
+( 49) Trans Currency Code    :  124
+( 50) Merch Base Currency    :  124
+( 61) Reserved for Natl Use  :( 11) 20002137831
+( 63) Number of 1604 ISO Msgs:(  1) 5
+(111) Requested Amount       :  000000000000
+(114) Trans Cat Code         :  R
+
+Message Type     : 1604
+ Bit Map 1            : 8628000000000400
+  Data Bits set are   : 001,006,007,011,013,054,
+ Bit Map 2            : 0003180000000000
+  Data Bits set are   : 079,080,084,085,
+(  6) EDC Trans Code        :  11
+(  7) EDC Sales Date        :  0822
+( 11) EDC Ticket Number     :  000438####
+( 13) EDC Credit/Debit Ind  :  #
+( 54) M/C Merc Postal Code  :  V7A#5J7000
+( 79) CPS Auth. Char. Ind   :  V
+( 80) CPS Transaction Ident :  018234409026649
+( 84) CPS First Auth Amt    :  000000000499
+( 85) CPS Total Auth Amt    :  000000000499
+
+Message Type     : 1604
+ Bit Map 1            : 800E00002BD00005
+  Data Bits set are   : 001,013,014,015,035,037,039,040,041,042,044,062,064,
+ Bit Map 2            : 0018024500004682
+  Data Bits set are   : 076,077,087,090,094,096,114,118,119,121,127,
+( 13) Det - Approval Code   :  OK660C##
+( 14) Service Provider ID   :  00002
+( 15) Switch Response Code  :  205
+( 35) Commercial Card Type  :  04
+( 37) Electron Commerce Ind :  00
+( 39) Delete Point Of Origin:  U
+( 40) WATS Indicator        :  N
+( 41) Terminal Systrace     :  001237
+( 42) Transponder Indicator :  0
+( 44) Payment Serv Rqst Flag:  #
+( 62) Debt Indicator        :  0
+( 64) HDC Version           :  S0006
+( 76) Terminal Slot Nbr     :  02
+( 77) Direct Route Indc.    :  #
+( 87) Deferred Billing Ind  :  0
+( 90) Derived SW Response CD:  A
+( 94) Detail Tracker ID     :  1205349123155241
+( 96) Authorization Origin  :  #
+(114) Terminal Proc Code    :  004000
+(118) Original Terminal Data:( 20) 104000001104########
+(119) Front End Code        :  N
+(121) HDC Response Code     :  000
+(127) Alpha Country Code    :  CAN
+
+Message Type     : 1604
+ Bit Map 1            : 0000000000000000
+  Data Bits set are   : 
+
+Message Type     : 1604
+ Bit Map 1            : FFDFEF9EEC1FFC00
+  Data Bits set are   : 001,002,003,004,005,006,007,008,009,010,012,013,014,015,016,017,018,019,021,022,023,024,025,028,029,030,031,033,034,035,037,038,044,045,046,047,048,049,050,051,052,053,054,
+ Bit Map 2            : 7400000000850302
+  Data Bits set are   : 066,067,068,070,105,110,112,119,120,127,
+(  2) Record Type           :  01
+(  3) Reference Number      :  00RJM7
+(  4) Site Number           :  20
+(  5) Authorization Date    :  08222018
+(  6) Time Recv Merchant    :  0031554
+(  7) Time Sent Merchant    :  0000000
+(  8) Time Sent Association :  0031554
+(  9) Time Recv Association :  0000000
+( 10) Currency Code         :  124
+( 12) Merchant Port         :  D1__
+( 13) Xpanded Leased Line ID:  0736
+( 14) POS Indicator         :  5
+( 15) POS Type              :  0
+( 16) External Merchant No  :  000000000000000000
+( 17) MC Promo Code         :  ######
+( 18) Transaction Type      :  00
+( 19) Association Port      :  ####
+( 21) Service Entitlement No:  82413420019####
+( 22) Billing Code          :  M
+( 23) EDC Capture Indicator :  Y
+( 24) Internal Result Code  :  24
+( 25) Country Code          :  124
+( 28) Job Stream ID         :  2
+( 29) Platform Code         :  ##
+( 30) MIS Association Code  :  35
+( 31) CPS ACI Presented     :  V
+( 33) Sec Assoc Time Sent   :  0000000
+( 34) Sec Assoc Time Recv   :  0000000
+( 35) Sec Association ID    :  10
+( 37) MC Presence Indicator :  #
+( 38) Recurring Payment Ind :  N
+( 44) Acquiring BIN         :  445077
+( 45) Acquiring ICA         :  010364
+( 46) Terminal Lookup ID    :  Y
+( 47) Transition Flag       :  R
+( 48) Version Number        :  15#
+( 49) HDC Indicator         :  1
+( 50) Folio Number          :  000438####
+( 51) Voice Operator Number :  ###
+( 52) Voice Transaction Code:  ##
+( 53) Voice Merchant ID     :  #####
+( 54) Host Capture Action   :  ##########
+( 66) Merch Street Addr     :  135#-#11300#NO.#5#ROAD
+                                   ###
+( 67) Merch City            :  RICHMOND############
+( 68) Merch State           :  BC
+( 70) Merch Name            :  GREEN#MOUNTAIN#E-TRADI
+                                   ########
+(105) Card Level Results    :  C#
+(110) Partial Auth Indicator:  0
+(112) Cloud Total Auth      :  000000000499
+(119) Additional POS Info   :  750000000000
+(120) Switch Msg Type       :  0400
+(127) ASSOC RRN             :  823404200020
+
+Message Type     : 1604
+ Bit Map 1            : 8000300020000000
+  Data Bits set are   : 001,019,020,035,
+ Bit Map 2            : C000000000000000
+  Data Bits set are   : 065,066,
+( 19) MC Device Type Ind    :  00
+( 20) Terminal Capture Type :  045
+( 35) ADI Value             :(  4) DATW
+( 65) Intl Proc Code        :(  7) 0000000
+( 66) HOPS part 1           :( 91) 5244315f5f5b7ce73b00069c90534d5453315b7ce73b
+                                   00069dde524d5453315b7ce73b0006a19252525654
+                                   485b7ce73b000747085354464d525b7ce73b000748
+                                   835254464d525b7ce73b00074c2553535649315b7c
+                                   e73b00074c53
+   00          Recv'd D1__ at 08/22/18 00:31:55.4332
+   01          Send   MTS1 at 08/22/18 00:31:55.4336
+   02          Recv'd MTS1 at 08/22/18 00:31:55.4345
+   03          Recv'd RVTH at 08/22/18 00:31:55.4769
+   04          Send   TFMR at 08/22/18 00:31:55.4773
+   05          Recv'd TFMR at 08/22/18 00:31:55.4782
+   06          Send   SVI1 at 08/22/18 00:31:55.4782
+
+
+At August 22, 2018 12:31:55.5331 AM
+Type PT-3 Label D1__ refnum 00RJM720     Format hdcn_iso 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : HDCW
+Header data length   : 152
+Subsystem ID         : HA ( 03) : SND
+Terminal ID          : H$ ( 08) : 01383819
+Function Code        : HB ( 08) : DELETED#
+Units of Work        : HC ( 03) : 001
+Hardware Route ID    : HG ( 04) : TNML
+Settlement Type      : HI ( 08) : RISCNAST
+Close Term Type RJE  : HM ( 01) : H
+Batch Date           : HP ( 14) : 08222018003155
+Ticket Number        : HQ ( 10) : 0000000438
+Batch File Seq No.   : H1 ( 08) : 04350700
+Tracker ID           : H4 ( 16) : 1205349123155241
+HDC Capture Mode     : HV ( 21) : NETXS00#0410#00RJM720
+
+
+Message Length   :   56
+Message Type     : 1314
+ Bit Map 1            : 0000000002E00008
+  Data Bits set are   : 039,041,042,043,061,
+( 39) Response Code          :  300
+( 41) Card Accpt Term ID     :  01383819
+( 42) Card Accpt ID Code     :  000318320298991
+( 43) Logical TID            :  ####
+( 61) Reserved for Natl Use  :( 11) 20002137831
+
+
+At August 22, 2018 12:31:55.5337 AM
+Type PT-4 Label D1__ refnum 00RJM720     Format ISO-Nash 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+ Message Type   : 0410
+ Bit Map 1            : 303801000a800000
+  Data Bits set are   : 003,004,011,012,013,024,037,039,041,
+Pos 003 Processing code        (len   6): 004000
+Pos 004 Amount, Transaction    (len  12): 000000000499
+Pos 011 Sys Trace Audit Bill   (len   6): 001237
+Pos 012 Time, Local Trans      (len   6): 213155
+Pos 013 Date, Local Trans      (len   4): 0821
+Pos 024 Network Int Ident      (len   3): 048
+Pos 037 Retreival Reference No (len  12): 000016396420
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383819
+
+
+At August 22, 2018 12:32:35.1344 AM
+Type PT-1 Label D1__ refnum 00RJNP20     Format ISO-Nash 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+FORMAT: ISO-Nash
+
+ Message Type   : 0200
+ Bit Map 1            : 703c05a200c00806
+  Data Bits set are   : 002,003,004,011,012,013,014,022,024,025,027,031,041,042,053,062,063,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 004000
+Pos 004 Amount, Transaction    (len  12): 000000001000
+Pos 011 Sys Trace Audit Bill   (len   6): 001238
+Pos 012 Time, Local Trans      (len   6): 213204
+Pos 013 Date, Local Trans      (len   4): 0821
+Pos 014 Date, Expiration       (len   4): 2604
+Pos 022 POS Entry Mode         (len   3): 011
+Pos 024 Network Int Ident      (len   3): 048
+Pos 025 POS Condition Code     (len   2): 00
+Pos 027 Additional POS Info    (len   2): 75
+Pos 031 ACQ Inst Ref Data      (len   1): 1
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID (Merch) (len  15): 000000000423483
+Pos 053 Security Control Info  (len  16): 1807152344340000
+Pos 062 Invoice Number         (len   6): 000438
+Pos 063
+
+    Table ID : 54
+        Zip Code              (len   9): 11747    
+        Address               (len  20): 13469               
+
+    Table ID : 66
+        Card Type ID           (len   2): 02
+
+    Table ID : 90
+        Version Number        (len   1): 2
+        Balance Info Capable  (len   1): 1
+        Partial Auth Capable  (len   1): 1
+
+    Table ID : 93
+        Version               (len   2): 01
+
+        Nbr of AUAR           (len   1): 1
+
+        Visa ID (Hex)         (len   2):   
+        Visa BID              (len   5):      
+        Visa AUAR (Hex)       (len  12):             
+        FDMS TPP ID           (len   6): F03501
+
+    Table ID : SD
+        (TC) Terminal Capability   (len  15)    700111100001000
+        (CN) Customer Ref Number   (len  13)                 
+
+
+At August 22, 2018 12:32:35.1347 AM
+Type MTSS Label D1__ refnum 00RJNP20     Format Unknown 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  200104
+Primary Merc Id     :  
+Default Merc Id     :  
+Terminal Id         :  01383819000999999999999999
+Merchant Status     :  01   (CLIENT SENT)
+Terminal Status     :  01   (CLIENT SENT)
+
+
+At August 22, 2018 12:32:35.1355 AM
+Type MTSR Label D1__ refnum 00RJNP20     Format ISO-Nash 
+Term ID '01383819' Merch ID '' Prim Acct '4012000033330026'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  200104
+Primary Merc Id     :  000000318320298991
+Default Merc Id     :  
+Terminal Id         :  01383819000999999999999999
+Merchant Status     :  03   (SUCCESS)
+Terminal Status     :  03   (SUCCESS)
+
+
+At August 22, 2018 12:32:35.1358 AM
+Type AFLS Label D1__ refnum 00RJNP20     Format Unknown 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+Systrace            :  200104
+Echo Field          :  5814
+Account Number      :  0004012000033330026
+Merchant Number     :  000318320298991
+ADI Value           :  DATW
+OCT indicator       :  0
+
+
+At August 22, 2018 12:32:35.1368 AM
+Type AFLR Label D1__ refnum 00RJNP20     Format Unknown 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+Systrace            :  200104
+Echo Field          :  5814
+Account Number      :  0004012000033330026
+Merchant Number     :  000318320298991
+ADI Value           :  DATW
+OCT indicator       :  0
+Lookup Response     :  0000
+
+
+At August 22, 2018 12:32:35.1377 AM
+Type PT-2 Label D1__ refnum 00RJNP20     Format Visa 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : SVI1
+
+ Message Type         : 0100
+ Bit Map 1            : f224648108e08036
+  Data Bits set are   : 001,002,003,004,007,011,014,018,019,022,025,032,037,041,042,043,049,059,060,062,063,
+ Bit Map 2            : 0000000000000020
+  Data Bits set are   : 123,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000001000
+Pos 007 Trans Date and Time    (len  10): 0822043235
+Pos 011 Sys Trace Audit Bill   (len   6): 200104
+Pos 014 Date, Expiration       (len   4): 2604
+Pos 018 Merchant Type          (len   4): 7372
+Pos 019 ACQ Inst Country Code  (len   4): 0124
+Pos 022 POS Entry Mode         (len   4): 0110
+Pos 025 POS Condition Code     (len   2): 08
+Pos 032 ACQ Inst Ident Code    (len   6): 445077
+Pos 037 Retreival Reference No (len  12): 823404200104
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 043 Card Accept Name/LOC   (len  40): GREEN#MOUNTAIN#E-TRADI###RICHMOND#####CA
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 059 National POS GEO Data  (len  12): 61000V7A#5J7
+Pos 060 Additional POS info    
+    1. Terminal Type             (len 1): 7
+    2. Terminal Entry Cap        (len 1): 5
+    3. Chip Condition Code       (len 1): 0
+    4. Debt Ind                  (len 1): 0
+  5/6. Merchant Group ID         (len 2): 00
+    7. Chip Transaction Ind      (len 1): 0
+    8. Chip Card Reliability Ind (len 1): 0
+ 9/10. Electr Commerce Ind       (len 2): 00
+   11. Cardholder ID Method      (len 1): 0
+   12. Partial Auth Ind          (len 1): 1
+Pos 062 Payment Service field 
+   POS 62 Bit map is: 80000000
+   Data Bits set are   : 001,
+   Fld 62 Pos 001 Auth Char Indicator    (len   1): Y
+Pos 063 Debit Private Use      
+   POS 63 Bit map is: 800000
+   Data Bits set are   : 001,
+   Fld 63 Pos 001 Network ID             (len   4): 0000
+Pos 123 TLV field   (len 17):
+    Dataset ID 66 Length    (len 14)  
+      Postal Code             (len  5): 11747  
+      Postal Address          (len  5): 13469  
+
+
+At August 22, 2018 12:32:35.6414 AM
+Type PT-3 Label D1__ refnum 00RJNP20     Format Visa 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : SVI1
+
+ Message Type         : 0110
+ Bit Map 1            : 722000010ed08004
+  Data Bits set are   : 002,003,004,007,011,032,037,038,039,041,042,044,049,062,
+Pos 002 PAN Primary Acct No    (len  16): 4012000033330026
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000001000
+Pos 007 Trans Date and Time    (len  10): 0822043235
+Pos 011 Sys Trace Audit Bill   (len   6): 200104
+Pos 032 ACQ Inst Ident Code    (len   6): 412700
+Pos 037 Retreival Reference No (len  12): 823404200104
+Pos 038 Auth Id Response       (len   6): OK664C
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 044 Additional Resp Data   (len   2): #M
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 062 Payment Service field 
+   POS 62 Bit map is: E0000200
+   Data Bits set are   : 001,002,003,023,
+   Fld 62 Pos 001 Auth Char Indicator    (len   1): V
+   Fld 62 Pos 002 Transaction Id         (len  16): 0018234757302361
+   Fld 62 Pos 003 Validation Code        (len   4): G776
+   Fld 62 Pos 023 Card Level Results     (len   2): C#
+
+
+At August 22, 2018 12:32:35.6421 AM
+Type PT-2 Label D1__ refnum 00RJNP20     Format hdcn_iso 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : HDCW
+Header data length   : 169
+Subsystem ID         : HA ( 03) : SND
+Terminal ID          : H$ ( 08) : 01383819
+Function Code        : HB ( 08) : WRITED##
+Units of Work        : HC ( 03) : 001
+Hardware Route ID    : HG ( 04) : TNML
+Gateway Batch ID     : HH ( 13) : #############
+Settlement Type      : HI ( 08) : RISCNAST
+Close Term Type RJE  : HM ( 01) : H
+Batch Date           : HP ( 14) : 08222018003235
+Ticket Number        : HQ ( 10) : 0000000438
+Batch File Seq No.   : H1 ( 08) : 00000000
+Tracker ID           : H4 ( 16) : 1205349123555243
+HDC Capture Mode     : HV ( 21) : NETX####0110#00RJNP20
+
+
+Message Length   : 1137
+Message Type     : 1304
+ Bit Map 1            : F23465800ED0C80A
+  Data Bits set are   : 001,002,003,004,007,011,012,014,018,019,022,024,025,037,038,039,041,042,044,049,050,053,061,063,
+ Bit Map 2            : 0000000000014000
+  Data Bits set are   : 112,114,
+(  2) Primary Acct Nbr       :( 16) 4012000033330026
+(  3) Processing Code        :  000000
+(  4) Transaction Amt        :  000000001000
+(  7) Transmission Date      :  0822043235
+( 11) SysTrace Audit Nbr     :  200104
+( 12) Local Transaction Date :  180822003204
+( 14) Expiration Date        :  2604
+( 18) Merchant Type          :  7372
+( 19) Acq. Country Code      :  124
+( 22) POS Entry Mode         :  011
+( 24) Network Int Ident      :  048
+( 25) POS Condition Code     :  0008
+( 37) Ret. Reference Nbr     :  ####16397520
+( 38) Approval Code          :  OK664C
+( 39) Response Code          :  000
+( 41) Card Accpt Term ID     :  01383819
+( 42) Card Accpt ID Code     :  000318320298991
+( 44) Additional Resp Data   :(  1) 0
+( 49) Trans Currency Code    :  124
+( 50) Merch Base Currency    :  124
+( 61) Reserved for Natl Use  :( 11) 20010437833
+( 63) Number of 1604 ISO Msgs:(  1) 5
+(112) Rev Original Data      :(140) 0100#.020822.03043235.
+                                   04200104.058234042001
+                                   04.06V.07018234757302
+                                   361.09003204.100822.1
+                                   7000016397520.27C#.31
+                                   OK664C.422604.4508222
+                                   018.460032351
+(114) Trans Cat Code         :  R
+
+Message Type     : 1604
+ Bit Map 1            : 8E28000000000400
+  Data Bits set are   : 001,005,006,007,011,013,054,
+ Bit Map 2            : 0003980000000000
+  Data Bits set are   : 079,080,081,084,085,
+(  5) Addendum Record       :(  7) 001201N
+(  6) EDC Trans Code        :  11
+(  7) EDC Sales Date        :  0822
+( 11) EDC Ticket Number     :  000438####
+( 13) EDC Credit/Debit Ind  :  #
+( 54) M/C Merc Postal Code  :  V7A#5J7000
+( 79) CPS Auth. Char. Ind   :  V
+( 80) CPS Transaction Ident :  018234757302361
+( 81) CPS Validation Code   :  G776
+( 84) CPS First Auth Amt    :  000000001000
+( 85) CPS Total Auth Amt    :  000000001000
+
+Message Type     : 1604
+ Bit Map 1            : 900E00002BD00005
+  Data Bits set are   : 001,004,013,014,015,035,037,039,040,041,042,044,062,064,
+ Bit Map 2            : 0019624500004682
+  Data Bits set are   : 076,077,080,082,083,087,090,094,096,114,118,119,121,127,
+(  4) DM AVS Response Code  :  M
+( 13) Det - Approval Code   :  OK664C##
+( 14) Service Provider ID   :  00002
+( 15) Switch Response Code  :  000
+( 35) Commercial Card Type  :  04
+( 37) Electron Commerce Ind :  00
+( 39) Delete Point Of Origin:  D
+( 40) WATS Indicator        :  N
+( 41) Terminal Systrace     :  001238
+( 42) Transponder Indicator :  0
+( 44) Payment Serv Rqst Flag:  #
+( 62) Debt Indicator        :  0
+( 64) HDC Version           :  S0006
+( 76) Terminal Slot Nbr     :  02
+( 77) Direct Route Indc.    :  #
+( 80) Network Response Code :  00#
+( 82) AVS Zip Code          :  11747####
+( 83) AVS Address           :  13469#################
+                                   ##################
+( 87) Deferred Billing Ind  :  0
+( 90) Derived SW Response CD:  A
+( 94) Detail Tracker ID     :  1205349123555243
+( 96) Authorization Origin  :  #
+(114) Terminal Proc Code    :  004000
+(118) Original Terminal Data:( 20) 102000001104########
+(119) Front End Code        :  N
+(121) HDC Response Code     :  000
+(127) Alpha Country Code    :  CAN
+
+Message Type     : 1604
+ Bit Map 1            : 0000000000000000
+  Data Bits set are   : 
+
+Message Type     : 1604
+ Bit Map 1            : FFDFEF9EEC1FFC00
+  Data Bits set are   : 001,002,003,004,005,006,007,008,009,010,012,013,014,015,016,017,018,019,021,022,023,024,025,028,029,030,031,033,034,035,037,038,044,045,046,047,048,049,050,051,052,053,054,
+ Bit Map 2            : 7600000008850302
+  Data Bits set are   : 066,067,068,070,071,101,105,110,112,119,120,127,
+(  2) Record Type           :  01
+(  3) Reference Number      :  00RJNP
+(  4) Site Number           :  20
+(  5) Authorization Date    :  08222018
+(  6) Time Recv Merchant    :  0032351
+(  7) Time Sent Merchant    :  0000000
+(  8) Time Sent Association :  0032351
+(  9) Time Recv Association :  0032356
+( 10) Currency Code         :  124
+( 12) Merchant Port         :  D1__
+( 13) Xpanded Leased Line ID:  0736
+( 14) POS Indicator         :  5
+( 15) POS Type              :  0
+( 16) External Merchant No  :  000000000000000000
+( 17) MC Promo Code         :  ######
+( 18) Transaction Type      :  00
+( 19) Association Port      :  ####
+( 21) Service Entitlement No:  000082413420019
+( 22) Billing Code          :  M
+( 23) EDC Capture Indicator :  Y
+( 24) Internal Result Code  :  00
+( 25) Country Code          :  124
+( 28) Job Stream ID         :  2
+( 29) Platform Code         :  ##
+( 30) MIS Association Code  :  30
+( 31) CPS ACI Presented     :  Y
+( 33) Sec Assoc Time Sent   :  0000000
+( 34) Sec Assoc Time Recv   :  0000000
+( 35) Sec Association ID    :  30
+( 37) MC Presence Indicator :  #
+( 38) Recurring Payment Ind :  N
+( 44) Acquiring BIN         :  445077
+( 45) Acquiring ICA         :  010364
+( 46) Terminal Lookup ID    :  Y
+( 47) Transition Flag       :  R
+( 48) Version Number        :  15#
+( 49) HDC Indicator         :  1
+( 50) Folio Number          :  000438####
+( 51) Voice Operator Number :  ###
+( 52) Voice Transaction Code:  ##
+( 53) Voice Merchant ID     :  #####
+( 54) Host Capture Action   :  ##########
+( 66) Merch Street Addr     :  135#-#11300#NO.#5#ROAD
+                                   ###
+( 67) Merch City            :  RICHMOND############
+( 68) Merch State           :  BC
+( 70) Merch Name            :  GREEN#MOUNTAIN#E-TRADI
+                                   ########
+( 71) TPP ID                :  F03501
+(101) TPP MATCH IND         :  V
+(105) Card Level Results    :  C#
+(110) Partial Auth Indicator:  1
+(112) Cloud Total Auth      :  000000001000
+(119) Additional POS Info   :  750000000001
+(120) Switch Msg Type       :  0100
+(127) ASSOC RRN             :  823404200104
+
+Message Type     : 1604
+ Bit Map 1            : 8000300120000000
+  Data Bits set are   : 001,019,020,032,035,
+ Bit Map 2            : E000000000000000
+  Data Bits set are   : 065,066,067,
+( 19) MC Device Type Ind    :  00
+( 20) Terminal Capture Type :  045
+( 32) Terminal Capabilities :( 15) 700111100001000
+( 35) ADI Value             :(  4) DATW
+( 65) Intl Proc Code        :(  7) 0000000
+( 66) HOPS part 1           :( 91) 5244315f5f5b7ce76300020bc5534d5453315b7ce763
+                                   00020e3d524d5453315b7ce763000211775241464c
+                                   315b7ce763000216585354464d525b7ce763000216
+                                   b35254464d525b7ce76300021a0253535649315b7c
+                                   e76300021a36
+   00          Recv'd D1__ at 08/22/18 00:32:35.1340
+   01          Send   MTS1 at 08/22/18 00:32:35.1347
+   02          Recv'd MTS1 at 08/22/18 00:32:35.1355
+   03          Recv'd AFL1 at 08/22/18 00:32:35.1367
+   04          Send   TFMR at 08/22/18 00:32:35.1368
+   05          Recv'd TFMR at 08/22/18 00:32:35.1377
+   06          Send   SVI1 at 08/22/18 00:32:35.1377
+( 67) HOPS part 2           :( 39) 52535649315b7ce7630009c54d5354464d525b7ce763
+                                   0009c5a15254464d525b7ce7630009c8b7
+   00          Recv'd SVI1 at 08/22/18 00:32:35.6403
+   01          Send   TFMR at 08/22/18 00:32:35.6404
+   02          Recv'd TFMR at 08/22/18 00:32:35.6412
+
+
+At August 22, 2018 12:32:35.6949 AM
+Type PT-3 Label D1__ refnum 00RJNP20     Format hdcn_iso 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+Association is    : HDCW
+Header data length   : 169
+Subsystem ID         : HA ( 03) : SND
+Terminal ID          : H$ ( 08) : 01383819
+Function Code        : HB ( 08) : WRITED##
+Units of Work        : HC ( 03) : 001
+Hardware Route ID    : HG ( 04) : TNML
+Gateway Batch ID     : HH ( 13) : #############
+Settlement Type      : HI ( 08) : RISCNAST
+Close Term Type RJE  : HM ( 01) : H
+Batch Date           : HP ( 14) : 08222018003235
+Ticket Number        : HQ ( 10) : 0000000438
+Batch File Seq No.   : H1 ( 08) : 04350900
+Tracker ID           : H4 ( 16) : 1205349123555243
+HDC Capture Mode     : HV ( 21) : NETXS00#0110#00RJNP20
+
+
+Message Length   :   56
+Message Type     : 1314
+ Bit Map 1            : 0000000002E00008
+  Data Bits set are   : 039,041,042,043,061,
+( 39) Response Code          :  300
+( 41) Card Accpt Term ID     :  01383819
+( 42) Card Accpt ID Code     :  000318320298991
+( 43) Logical TID            :  ####
+( 61) Reserved for Natl Use  :( 11) 20010437833
+
+
+At August 22, 2018 12:32:35.6952 AM
+Type PT-4 Label D1__ refnum 00RJNP20     Format ISO-Nash 
+Term ID '01383819' Merch ID '000318320298991' Prim Acct '4012000033330026'
+
+
+ Message Type   : 0210
+ Bit Map 1            : 303801000e800002
+  Data Bits set are   : 003,004,011,012,013,024,037,038,039,041,063,
+Pos 003 Processing code        (len   6): 004000
+Pos 004 Amount, Transaction    (len  12): 000000001000
+Pos 011 Sys Trace Audit Bill   (len   6): 001238
+Pos 012 Time, Local Trans      (len   6): 213235
+Pos 013 Date, Local Trans      (len   4): 0821
+Pos 024 Network Int Ident      (len   3): 048
+Pos 037 Retreival Reference No (len  12): 000016397520
+Pos 038 Auth Id Response       (len   6): OK664C
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383819
+Pos 063
+
+    Table ID : 20
+        Returned ACI           (len   1): V
+        Transaction ID         (len  15): 018234757302361
+        Validation Code        (len   4): G776
+        ACI                    (len   1): V
+        Market Specific Ind    (len   1):  
+        POS Entry Mode         (len   2): 01
+
+    Table ID : 55
+        Address Match         (len   1): Y
+        ZIP Match             (len   1): Y
+        Avs Native Resp Code  (len   1): M
+
+    Table ID : SD
+        (ZX) Random Test Tag ZX    (len   1)    I
+        (TC) Terminal Capability   (len  15)    700111100001000
+
+		
+		

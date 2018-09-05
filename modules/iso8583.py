@@ -81,6 +81,21 @@ class Iso8583(object):
     #Field names
     FIELD02_NAME = "PAN"
     FIELD03_NAME = "Processing Code"
+    FIELD04_NAME = "Transaction Amount"
+    FIELD11_NAME = "STAN"
+    FIELD12_NAME = "Local Transaction Time"
+    FIELD13_NAME = "Local Transaction Date"
+    FIELD14_NAME = "Expiry Date"
+    FIELD22_NAME = "POSSEM"
+    FIELD23_NAME = "EMV Card Seq Number"
+    FIELD24_NAME = "NII"
+    FIELD25_NAME = "POS Condition Code"
+    FIELD27_NAME = "Additional POS Info"
+    FIELD31_NAME = "Acq Reference Data"
+    FIELD35_NAME = "Track II Data"
+    FIELD37_NAME = "Reference Number"
+    FIELD38_NAME = "Approval Code"
+    FIELD39_NAME = "Response Code"
 
     def __init__(self):
         """Return an empty ISO858 object"""
@@ -180,7 +195,7 @@ class Iso8583(object):
         self.raw_packet = self.raw_packet[size:]
         return popped
 
-    def display(self):
+    def display(self): #TODO
         """display formatted packet"""
         output_text = "  : " + self.tpdu + "\n  : "
         output_text += self.msg_type + "\n  : "
@@ -247,7 +262,7 @@ class Iso8583(object):
             self.set_errmsg(err_msg)
             return "invalid"
         hex_val = processing_code
-        str_val = ""
+        str_val = processing_code
         self.fields[3] = dict(
             {
                 'name': self.FIELD03_NAME,
@@ -272,7 +287,16 @@ class Iso8583(object):
         if len(transaction_amount) != self.TRANSACTION_AMOUNT_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[4] = transaction_amount
+        hex_val = transaction_amount
+        transaction_amount = str(int(transaction_amount))
+        str_val = transaction_amount[:(len(transaction_amount) - 2)] + "." + transaction_amount[len(transaction_amount)-2:]
+        self.fields[4] = dict(
+            {
+                'name': self.FIELD04_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field11(self):
@@ -289,7 +313,15 @@ class Iso8583(object):
         if len(stan) != self.STAN_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[11] = stan
+        hex_val = stan
+        str_val = str(int(stan))
+        self.fields[11] = dict(
+            {
+                'name': self.FIELD11_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field12(self):
@@ -306,7 +338,15 @@ class Iso8583(object):
         if len(time) != self.TIME_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[12] = time
+        hex_val = time
+        str_val = time[:2] + ":" + time[2:4] + ":" + time[4:]
+        self.fields[12] = dict(
+            {
+                'name': self.FIELD12_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field13(self):
@@ -323,7 +363,15 @@ class Iso8583(object):
         if len(date) != self.DATE_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[13] = date
+        hex_val = date
+        str_val = date[:2] + "/" + date[2:]
+        self.fields[13] = dict(
+            {
+                'name': self.FIELD13_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field14(self):
@@ -340,7 +388,15 @@ class Iso8583(object):
         if len(exp_date) != self.EXP_DATE_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[14] = exp_date
+        hex_val = exp_date
+        str_val = exp_date[:2] + "/" + exp_date[2:]
+        self.fields[14] = dict(
+            {
+                'name': self.FIELD14_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field22(self):
@@ -357,7 +413,15 @@ class Iso8583(object):
         if len(possem) != self.POSSEM_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[22] = possem
+        hex_val = possem
+        str_val = possem[1:]
+        self.fields[22] = dict(
+            {
+                'name': self.FIELD22_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field23(self):
@@ -374,7 +438,15 @@ class Iso8583(object):
         if len(emv_card_seq) != self.POSSEM_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[23] = emv_card_seq
+        hex_val = emv_card_seq
+        str_val = emv_card_seq[1:]
+        self.fields[23] = dict(
+            {
+                'name': self.FIELD23_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field24(self):
@@ -393,7 +465,15 @@ class Iso8583(object):
         if len(nii) != self.NII_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[24] = nii
+        hex_val = nii
+        str_val = nii[1:]
+        self.fields[24] = dict(
+            {
+                'name': self.FIELD24_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field25(self):
@@ -410,7 +490,15 @@ class Iso8583(object):
         if len(pos_condition_code) != self.POS_CONDITION_CODE_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[25] = pos_condition_code
+        hex_val = pos_condition_code
+        str_val = pos_condition_code
+        self.fields[25] = dict(
+            {
+                'name': self.FIELD25_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field27(self):
@@ -427,7 +515,15 @@ class Iso8583(object):
         if len(add_pos_information) != self.ADD_POS_INFORMATION_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[27] = add_pos_information
+        hex_val = add_pos_information
+        str_val = add_pos_information
+        self.fields[27] = dict(
+            {
+                'name': self.FIELD27_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field31(self):
@@ -445,7 +541,15 @@ class Iso8583(object):
         if len(acq_ref_data) != 4:
             self.set_errmsg(err_msg)
             return "invalid"
-        self.fields[31] = acq_ref_data
+        hex_val = acq_ref_data
+        str_val = acq_ref_data[2:].decode("hex")
+        self.fields[31] = dict(
+            {
+                'name': self.FIELD31_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
         return result_value
 
     def load_field35(self):

@@ -110,6 +110,7 @@ class ISO8583Test(unittest.TestCase):
         self.iso.unpack(packet)
         self.assertEqual(self.iso.fields[2]['hex_val'], "18123456789012345678")
         self.assertEqual(self.iso.fields[2]['str_val'], "123456789012345678")
+        self.assertEqual(self.iso.fields[2]['name'], self.iso.FIELD02_NAME)
         #16 digit PAN
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -143,8 +144,9 @@ class ISO8583Test(unittest.TestCase):
         packet += "2000000000000000" #bitmap
         packet += "123456" #processing code
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEqual(self.iso.fields[3]['hex_value'], "123456")
-        self.assertEqual(self.iso.fields[3]['str_value'], "")
+        self.assertEqual(self.iso.fields[3]['hex_val'], "123456")
+        self.assertEqual(self.iso.fields[3]['str_val'], "123456")
+        self.assertEqual(self.iso.fields[3]['name'], self.iso.FIELD03_NAME)
         #negative: n not equal to 6. Field 3 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -164,6 +166,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[4]['hex_val'], "000000001000")
         self.assertEquals(self.iso.fields[4]['str_val'], "10.00")
+        self.assertEqual(self.iso.fields[4]['name'], self.iso.FIELD04_NAME)
         #negative: n not equal to 12. Field 4 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -179,10 +182,11 @@ class ISO8583Test(unittest.TestCase):
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
         packet += "0020000000000000" #bitmap
-        packet += "123456" #processing code
+        packet += "023456" #processing code
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[11]['hex_val'], "123456")
-        self.assertEquals(self.iso.fields[11]['str_val'], "123456")
+        self.assertEquals(self.iso.fields[11]['hex_val'], "023456")
+        self.assertEquals(self.iso.fields[11]['str_val'], "23456")
+        self.assertEqual(self.iso.fields[11]['name'], self.iso.FIELD11_NAME)
         #negative: n not equal to 6. Field 11 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -198,10 +202,11 @@ class ISO8583Test(unittest.TestCase):
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
         packet += "0010000000000000" #bitmap
-        packet += "183015" #local time
+        packet += "083015" #local time
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[12]['hex_val'], "183015")
-        self.assertEquals(self.iso.fields[12]['str_val'], "18:30:15")
+        self.assertEquals(self.iso.fields[12]['hex_val'], "083015")
+        self.assertEquals(self.iso.fields[12]['str_val'], "08:30:15")
+        self.assertEqual(self.iso.fields[12]['name'], self.iso.FIELD12_NAME)
         #negative: n not equal to 6. Field 12 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -221,6 +226,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[13]['hex_val'], "0831")
         self.assertEquals(self.iso.fields[13]['str_val'], "08/31")
+        self.assertEqual(self.iso.fields[13]['name'], self.iso.FIELD13_NAME)
         #negative: n not equal to 4. Field 13 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -240,6 +246,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[14]['hex_val'], "0820")
         self.assertEquals(self.iso.fields[14]['str_val'], "08/20")
+        self.assertEqual(self.iso.fields[14]['name'], self.iso.FIELD14_NAME)
         #negative: n not equal to 4. Field 14 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -258,7 +265,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0051" #field 22
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[22]['hex_val'], "0051")
-        self.assertEquals(self.iso.fields[22]['str_val'], "")
+        self.assertEquals(self.iso.fields[22]['str_val'], "051")
+        self.assertEqual(self.iso.fields[22]['name'], self.iso.FIELD22_NAME)
         #negative: n not equal to 4 (3 in specs). Field 22 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -277,7 +285,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0001" #field 23
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[23]['hex_val'], "0001")
-        self.assertEquals(self.iso.fields[23]['str_val'], "")
+        self.assertEquals(self.iso.fields[23]['str_val'], "001")
+        self.assertEqual(self.iso.fields[23]['name'], self.iso.FIELD23_NAME)
         #negative: n not equal to 4 (3 in specs). Field 23 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -296,7 +305,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0048" #field 24
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[24]['hex_val'], "0048")
-        self.assertEquals(self.iso.fields[24]['str_val'], "")
+        self.assertEquals(self.iso.fields[24]['str_val'], "048")
+        self.assertEqual(self.iso.fields[24]['name'], self.iso.FIELD24_NAME)
         #negative: n not equal to 3 (3 in specs). Field 24 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -315,7 +325,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "00" #field 25
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[25]['hex_val'], "00")
-        self.assertEquals(self.iso.fields[25]['str_val'], "")
+        self.assertEquals(self.iso.fields[25]['str_val'], "00")
+        self.assertEqual(self.iso.fields[25]['name'], self.iso.FIELD25_NAME)
         #negative: n not equal to 2. Field 25 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -334,7 +345,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "00" #field 27
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[27]['hex_val'], "00")
-        self.assertEquals(self.iso.fields[27]['str_val'], "")
+        self.assertEquals(self.iso.fields[27]['str_val'], "00")
+        self.assertEqual(self.iso.fields[27]['name'], self.iso.FIELD27_NAME)
         #negative: n not equal to 2. Field 27 only
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -354,6 +366,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[31]['hex_val'], "0131")
         self.assertEquals(self.iso.fields[31]['str_val'], "1")
+        self.assertEqual(self.iso.fields[31]['name'], self.iso.FIELD31_NAME)
         #negative: .. not 4
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -372,7 +385,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "295435560000000007D120810123456F" #field 35 #TODO
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[35]['hex_val'], "5435560000000007D120810123456F")
-        self.assertEquals(self.iso.fields[35]['str_val'], "") #TODO
+        self.assertEquals(self.iso.fields[35]['str_val'], "#TODO") #TODO
+        self.assertEqual(self.iso.fields[35]['name'], self.iso.FIELD35_NAME)
         #negative: not z ..37
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type

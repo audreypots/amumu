@@ -1,0 +1,489 @@
+At July 25, 2018 01:33:17.0898 AM
+Type PT-1 Label DT__ refnum 030J6V17     Format ISO-Nash 
+Term ID '01383454' Merch ID '' Prim Acct ''
+
+FORMAT: ISO-Nash
+
+ Message Type   : 0100
+ Bit Map 1            : 303807a200c00a06
+  Data Bits set are   : 003,004,011,012,013,022,023,024,025,027,031,041,042,053,055,062,063,
+Pos 003 Processing code        (len   6): 304000
+Pos 004 Amount, Transaction    (len  12): 000000000080
+Pos 011 Sys Trace Audit Bill   (len   6): 001103
+Pos 012 Time, Local Trans      (len   6): 223209
+Pos 013 Date, Local Trans      (len   4): 0724
+Pos 022 POS Entry Mode         (len   3): 071
+Pos 023 Card Sequence Number   (len   3): 001
+Pos 024 Network Int Ident      (len   3): 048
+Pos 025 POS Condition Code     (len   2): 00
+Pos 027 Additional POS Info    (len   2): 75
+Pos 031 ACQ Inst Ref Data      (len   1): 1
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 042 Card Accept ID (Merch) (len  15): 000000000423483
+Pos 053 Security Control Info  (len  16): 1807040043530000
+Pos 055 Chip Card Data         (len 191):
+	Tag 9F26         Application Cryptogram (AC)	(len 008): DC9BDFDC9F034E15
+	Tag 9F27         Cryptogram Information Data	(len 001): 80
+	Tag 9F36     Application Transaction Counter	(len 002): 0008
+	Tag 9F37                Unpredictable Number	(len 004): 11904D8F
+	Tag 9F06      Appl Identifier (AID) Terminal	(len 007): A0000000041010
+	Tag 9F10       Issuer Application Data (IAD)	(len 018): 0110A00009240000000000000000000000FF
+	Tag   95  Terminal Verification Result (TVR)	(len 005): 0400008000
+	Tag   9B      Transaction Status Information	(len 002): 6800
+	Tag   9A                    Transaction Date	(len 003): 180724
+	Tag   9C                    Transaction Type	(len 001): 00
+	Tag 9F02                  Transaction Amount	(len 006): 000000000080
+	Tag 5F2A           Transaction Currency Code	(len 002): 0124
+	Tag   82     Application Interchange Profile	(len 002): 5980
+	Tag 9F1A               Terminal Country Code	(len 002): 0124
+	Tag 9F34     Cardholder Ver Method (CVM) Res	(len 003): 1F0302
+	Tag 5F34                Card Sequence Number	(len 001): 01
+	Tag 9F1E   Interface Device (IFD) Serial Nbr	(len 008): 3730363036353733
+	Tag 9F33               Terminal Capabilities	(len 003): 000808
+	Tag 9F35                       Terminal Type	(len 001): 22
+	Tag 5F24         Application Expiration Date	(len 003): 251231
+	Tag   84            Dedicated File Name (DF)	(len 010): A0000000041010D05601
+	Tag 9F09                 Appl Version Number	(len 002): 0002
+	Tag 9F53           Transaction Category Code	(len 001): 00
+	Tag 9F41         Transaction Sequence Number	(len 004): 00000034
+	Tag   4F            App Identifier(AID) Card	(len 007): A0000000041010
+	Tag   50                           App Label	(len 015): 505043204D43442030372076322032
+Pos 062 Invoice Number         (len   6): 000537
+Pos 063
+
+    Table ID : SP
+        (01) Security Level Indicator   (len   1)    1
+        (02) Encryption Type            (len   1)    1
+        (03) Encryption Target          (len   1)    2
+        (04) Key ID                     (len  11)    66257982464
+        (05) Encryption Block           (len 344)    Qlr1UWfURQk2+iz0atwBInuNzJgJBn20Vk4iBbin1i8fsjFAb0732h5P/4usdMsVYMqu0QCDFLHozugm+hZ7q+pmuRwpprXct7QGWUG9FaDSAhdTAo/7AtFAh3vLi3k6DovX0kwxCvgxvMPxScrbW/WJSMP0HUcKMsRut2SZGu9c/sfghhkqhKOWklZlJUkG8DTc/zuxYB3yiYwuAnOEb3wtvkDvDDKZNhTKp10wRAktrq1iaqPyQg60UOHkm/vI4IiR8y9R7tLpJju/bj1E5SC5Q4RwfQ/JaU/lOdlU/9Rsf4n86hXz6SF0E80lYn2HfURAWHZgv4trxeSlAi4jjA==
+        (06) Token Type                 (len   4)    1174
+
+    Table ID : 66
+        Card Type ID           (len   2): 01
+
+    Table ID : 93
+        Version               (len   2): 01
+
+        Nbr of AUAR           (len   1): 1
+
+        Visa ID (Hex)         (len   2):   
+        Visa BID              (len   5):      
+        Visa AUAR (Hex)       (len  12):             
+        FDMS TPP ID           (len   6): F03501
+
+    Table ID : SD
+        (TC) Terminal Capability   (len  15)    700111100001000
+        (CN) Customer Ref Number   (len  13)                 
+
+
+At July 25, 2018 01:33:17.0900 AM
+Type PT-2 Label DT__ refnum 030J6V17     Format STM 
+Term ID '01383454' Merch ID '' Prim Acct ''
+
+
+Association is    : TAP1
+STM message
+   <stm>
+      <rti>                     01010000
+      <echo>                    0100170097
+      <tokenType>               1174
+      <keyId>                   66257982464
+      <eData>                   Qlr1UWfURQk2+iz0atwBInuNzJgJBn20Vk4iBbin1i8fsjFAb0732h5P/4usdMsVYMqu0QCDFLHozugm+hZ7q+pmuRwpprXct7QGWUG9FaDSAhdTAo/7AtFAh3vLi3k6DovX0kwxCvgxvMPxScrbW/WJSMP0HUcKMsRut2SZGu9c/sfghhkqhKOWklZlJUkG8DTc/zuxYB3yiYwuAnOEb3wtvkDvDDKZNhTKp10wRAktrq1iaqPyQg60UOHkm/vI4IiR8y9R7tLpJju/bj1E5SC5Q4RwfQ/JaU/lOdlU/9Rsf4n86hXz6SF0E80lYn2HfURAWHZgv4trxeSlAi4jjA==
+      <target>                  2
+      <eType>                   1
+      <tid>                     01383454
+   </stm>
+
+
+At July 25, 2018 01:33:17.1462 AM
+Type PT-3 Label DT__ refnum 030J6V17     Format STM 
+Term ID '01383454' Merch ID '' Prim Acct '5413330089600077'
+
+
+Association is    : TAP1
+STM message
+   <stm>
+      <echo>                    0100170097
+      <expDate>                 1225
+      <pan>                     5413330089600077
+      <posId>                   01383454
+      <respCode>                000
+      <target>                  2
+      <token>                   9575574302810077
+      <tokenFlag>               E
+      <tokenType>               1174
+      <track2>                  5413330089600077=25122010123409172
+   </stm>
+
+
+At July 25, 2018 01:33:17.1464 AM
+Type MTSS Label DT__ refnum 030J6V17     Format Unknown 
+Term ID '01383454' Merch ID '' Prim Acct '5413330089600077'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  170097
+Primary Merc Id     :  
+Default Merc Id     :  
+Terminal Id         :  01383454000999999999999999
+Merchant Status     :  01   (CLIENT SENT)
+Terminal Status     :  01   (CLIENT SENT)
+
+
+At July 25, 2018 01:33:17.1472 AM
+Type MTSR Label DT__ refnum 030J6V17     Format STM 
+Term ID '01383454' Merch ID '' Prim Acct '5413330089600077'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  170097
+Primary Merc Id     :  000000318320298991
+Default Merc Id     :  
+Terminal Id         :  01383454000999999999999999
+Merchant Status     :  03   (SUCCESS)
+Terminal Status     :  03   (SUCCESS)
+
+
+At July 25, 2018 01:33:17.1475 AM
+Type AFLS Label DT__ refnum 030J6V17     Format Unknown 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+Systrace            :  170097
+Echo Field          :  4577
+Account Number      :  0005413330089600077
+Merchant Number     :  000318320298991
+ADI Value           :  DATW
+OCT indicator       :  0
+
+
+At July 25, 2018 01:33:17.1482 AM
+Type AFLR Label DT__ refnum 030J6V17     Format Unknown 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+Systrace            :  170097
+Echo Field          :  4577
+Account Number      :  0005413330089600077
+Merchant Number     :  000318320298991
+ADI Value           :  DATW
+OCT indicator       :  0
+Lookup Response     :  0000
+
+
+At July 25, 2018 01:33:17.1486 AM
+Type PT-2 Label DT__ refnum 030J6V17     Format MasterCard 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+
+Association is    : MAST
+Message Type          : 0100
+ Bit Map 1            : 723c4601a8e18208
+  Data Bits set are   : 002,003,004,007,011,012,013,014,018,022,023,032,033,035,037,041,042,043,048,049,055,061,
+Pos 002 PAN Primary Acct No    (len  16): 5413330089600077
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000000080
+Pos 007 Trans Date and Time    (len  10): 0725053317
+Pos 011 Sys Trace Audit Bill   (len   6): 170097
+Pos 012 Time, Local Trans      (len   6): 013209
+Pos 013 Date, Local Trans      (len   4): 0725
+Pos 014 Date, Expiration       (len   4): 2512
+Pos 018 Merchant Type          (len   4): 7372
+Pos 022 POS Entry Mode         (len   3): 071
+Pos 023 Card Sequence Number   (len   3): 001
+Pos 032 ACQ Inst Ident Code    (len   6): 010364
+Pos 033 Forwrd Inst Ident Code (len   6): 001297
+Pos 035 Track 2 Data           (len  34): 5413330089600077=25122010123409172
+Pos 037 Retreival Reference No (len  12): 000056709617
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 043 Card Accept Name/LOC   (len  40): GREEN#MOUNTAIN#E-TRADI#RICHMOND######CAN
+Pos 048 Additional Data (MC)   (len 010)
+    TCC             (len 001): R
+    Sub Element 61  (len 005): 00000
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 055 Chip Card Data         (len 130):
+	Tag 9F26         Application Cryptogram (AC)	(len 008): DC9BDFDC9F034E15
+	Tag 9F27         Cryptogram Information Data	(len 001): 80
+	Tag 9F36     Application Transaction Counter	(len 002): 0008
+	Tag 9F37                Unpredictable Number	(len 004): 11904D8F
+	Tag 9F10       Issuer Application Data (IAD)	(len 018): 0110A00009240000000000000000000000FF
+	Tag   95  Terminal Verification Result (TVR)	(len 005): 0400008000
+	Tag   9A                    Transaction Date	(len 003): 180724
+	Tag   9C                    Transaction Type	(len 001): 00
+	Tag 9F02                  Transaction Amount	(len 006): 000000000080
+	Tag 5F2A           Transaction Currency Code	(len 002): 0124
+	Tag   82     Application Interchange Profile	(len 002): 5980
+	Tag 9F1A               Terminal Country Code	(len 002): 0124
+	Tag 9F34     Cardholder Ver Method (CVM) Res	(len 003): 1F0302
+	Tag 9F33               Terminal Capabilities	(len 003): 000808
+	Tag 9F35                       Terminal Type	(len 001): 22
+	Tag   84            Dedicated File Name (DF)	(len 010): A0000000041010D05601
+	Tag 9F09                 Appl Version Number	(len 002): 0002
+	Tag 9F53           Transaction Category Code	(len 001): 00
+	Tag 9F41         Transaction Sequence Number	(len 004): 00000034
+Pos 061 POS Data               (len  26): 0000010000300124V7A#5J7###
+
+
+At July 25, 2018 01:33:17.1906 AM
+Type PT-3 Label DT__ refnum 030J6V17     Format MasterCard 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+
+Association is    : MAST
+Message Type          : 0110
+ Bit Map 1            : 766300018e81a002
+  Data Bits set are   : 002,003,004,006,007,010,011,015,016,032,033,037,038,039,041,048,049,051,063,
+Pos 002 PAN Primary Acct No    (len  16): 5413330089600077
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000000080
+Pos 006 Amount, Card billing   (len  12): 000000000080
+Pos 007 Trans Date and Time    (len  10): 0725053317
+Pos 010 Conv Rate, Card Bill   (len   8): 61000000
+Pos 011 Sys Trace Audit Bill   (len   6): 170097
+Pos 015 Date, Settlement       (len   4): 0725
+Pos 016 Date, Conversion       (len   4): 0725
+Pos 032 ACQ Inst Ident Code    (len   5): 10002
+Pos 033 Forwrd Inst Ident Code (len   6): 001297
+Pos 037 Retreival Reference No (len  12): 000056709617
+Pos 038 Auth Id Response       (len   6): 209976
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 048 Additional Data (MC)   (len 001)
+    TCC             (len 001): R
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 051 Currency Code, Card B  (len   3): 978
+Pos 063 Banknet Data           (len   9): MCC747299
+
+
+At July 25, 2018 01:33:17.1914 AM
+Type PT-4 Label DT__ refnum 030J6V17     Format ISO-Nash 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+
+ Message Type   : 0110
+ Bit Map 1            : 303801000e800002
+  Data Bits set are   : 003,004,011,012,013,024,037,038,039,041,063,
+Pos 003 Processing code        (len   6): 304000
+Pos 004 Amount, Transaction    (len  12): 000000000080
+Pos 011 Sys Trace Audit Bill   (len   6): 001103
+Pos 012 Time, Local Trans      (len   6): 223317
+Pos 013 Date, Local Trans      (len   4): 0724
+Pos 024 Network Int Ident      (len   3): 048
+Pos 037 Retreival Reference No (len  12): 000056709617
+Pos 038 Auth Id Response       (len   6): 209976
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 063
+
+    Table ID : 20
+        Returned ACI           (len   1): A
+        Transaction ID         (len  15): MCC747299      
+        Validation Code        (len   4): 0725
+        ACI                    (len   1): A
+        Market Specific Ind    (len   1):  
+        POS Entry Mode         (len   2): 07
+
+    Table ID : SP
+        (XX) Random Test Tag XX         (len   2)    VD
+        (07) Token                      (len  16)    9575574302810077
+        (10) Service Provider ID        (len   3)    001
+
+    Table ID : SD
+        (ZZ) Random Test Tag ZZ    (len   2)    GN
+        (TC) Terminal Capability   (len  15)    700111100001000
+
+
+At July 25, 2018 01:33:59.1611 AM
+Type PT-1 Label DT__ refnum 030J8317     Format ISO-Nash 
+Term ID '01383454' Merch ID '' Prim Acct ''
+
+FORMAT: ISO-Nash
+
+ Message Type   : 0400
+ Bit Map 1            : 302407a200c00a06
+  Data Bits set are   : 003,004,011,014,022,023,024,025,027,031,041,042,053,055,062,063,
+Pos 003 Processing code        (len   6): 304000
+Pos 004 Amount, Transaction    (len  12): 000000000000
+Pos 011 Sys Trace Audit Bill   (len   6): 001104
+Pos 014 Date, Expiration       (len   4): 2512
+Pos 022 POS Entry Mode         (len   3): 071
+Pos 023 Card Sequence Number   (len   3): 001
+Pos 024 Network Int Ident      (len   3): 048
+Pos 025 POS Condition Code     (len   2): 00
+Pos 027 Additional POS Info    (len   2): 75
+Pos 031 ACQ Inst Ref Data      (len   1): 1
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 042 Card Accept ID (Merch) (len  15): 000000000423483
+Pos 053 Security Control Info  (len  16): 1807040043530000
+Pos 055 Chip Card Data         (len  38):
+	Tag   95  Terminal Verification Result (TVR)	(len 005): 0400008000
+	Tag   9B      Transaction Status Information	(len 002): 6800
+	Tag 5F34                Card Sequence Number	(len 001): 01
+	Tag 9F1E   Interface Device (IFD) Serial Nbr	(len 008): 3730363036353733
+	Tag   84            Dedicated File Name (DF)	(len 010): A0000000041010D05601
+Pos 062 Invoice Number         (len   6): 000537
+Pos 063
+
+    Table ID : SP
+        (01) Security Level Indicator   (len   1)    1
+        (06) Token Type                 (len   4)    1174
+        (07) Token                      (len  16)    9575574302810077
+        (10) Service Provider ID        (len   3)    001
+
+    Table ID : 20
+        Returned ACI           (len   1): A
+        Transaction ID         (len  15): MCC747299      
+        Validation Code        (len   4): 0725
+        ACI                    (len   1): A
+        Market Specific Ind    (len   1):  
+        POS Entry Mode         (len   2): 07
+
+    Table ID : 66
+        Card Type ID           (len   2): 01
+
+    Table ID : SD
+        (TC) Terminal Capability   (len  15)    700111100001000
+        (CN) Customer Ref Number   (len  13)                 
+
+
+At July 25, 2018 01:33:59.1613 AM
+Type PT-2 Label DT__ refnum 030J8317     Format STM 
+Term ID '01383454' Merch ID '' Prim Acct ''
+
+
+Association is    : TAP2
+STM message
+   <stm>
+      <rti>                     00030000
+      <echo>                    0400170165
+      <tokenType>               1174
+      <token>                   9575574302810077
+   </stm>
+
+
+At July 25, 2018 01:33:59.2062 AM
+Type PT-3 Label DT__ refnum 030J8317     Format STM 
+Term ID '01383454' Merch ID '' Prim Acct '5413330089600077'
+
+
+Association is    : TAP2
+STM message
+   <stm>
+      <echo>                    0400170165
+      <pan>                     5413330089600077
+      <respCode>                000
+      <token>                   9575574302810077
+      <tokenType>               1174
+   </stm>
+
+
+At July 25, 2018 01:33:59.2064 AM
+Type MTSS Label DT__ refnum 030J8317     Format Unknown 
+Term ID '01383454' Merch ID '' Prim Acct '5413330089600077'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  170165
+Primary Merc Id     :  
+Default Merc Id     :  
+Terminal Id         :  01383454000999999999999999
+Merchant Status     :  01   (CLIENT SENT)
+Terminal Status     :  01   (CLIENT SENT)
+
+
+At July 25, 2018 01:33:59.2071 AM
+Type MTSR Label DT__ refnum 030J8317     Format STM 
+Term ID '01383454' Merch ID '' Prim Acct '5413330089600077'
+
+Type                :  04   (TERM1_TO_MERC)
+Field               :  00   (NONE)
+Debug               :  N
+Primary Merc Idx    :  MERCHANT ID
+Default Merc Idx    :  MERCHANT ID
+Terminal Idx        :  MERCHANT ID
+Systrace            :  170165
+Primary Merc Id     :  000000318320298991
+Default Merc Id     :  
+Terminal Id         :  01383454000999999999999999
+Merchant Status     :  03   (SUCCESS)
+Terminal Status     :  03   (SUCCESS)
+
+
+At July 25, 2018 01:33:59.2721 AM
+Type PT-2 Label DT__ refnum 030J8317     Format MasterCard 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+
+Association is    : MAST
+Message Type          : 0400
+ Bit Map 1            : f23c46018ee18008
+  Data Bits set are   : 001,002,003,004,007,011,012,013,014,018,022,023,032,033,037,038,039,041,042,043,048,049,061,
+ Bit Map 2            : 0000004000000000
+  Data Bits set are   : 090,
+Pos 002 PAN Primary Acct No    (len  16): 5413330089600077
+Pos 003 Processing code        (len   6): 000000
+Pos 004 Amount, Transaction    (len  12): 000000000080
+Pos 007 Trans Date and Time    (len  10): 0725053359
+Pos 011 Sys Trace Audit Bill   (len   6): 170165
+Pos 012 Time, Local Trans      (len   6): 013209
+Pos 013 Date, Local Trans      (len   4): 0725
+Pos 014 Date, Expiration       (len   4): 2512
+Pos 018 Merchant Type          (len   4): 7372
+Pos 022 POS Entry Mode         (len   3): 071
+Pos 023 Card Sequence Number   (len   3): 001
+Pos 032 ACQ Inst Ident Code    (len   6): 010364
+Pos 033 Forwrd Inst Ident Code (len   6): 001297
+Pos 037 Retreival Reference No (len  12): 000056709617
+Pos 038 Auth Id Response       (len   6): 209976
+Pos 039 Response Code          (len   2): 17
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 042 Card Accept ID Code    (len  15): 000082413420019
+Pos 043 Card Accept Name/LOC   (len  40): GREEN#MOUNTAIN#E-TRADI#RICHMOND######CAN
+Pos 048 Additional Data (MC)   (len 025)
+    TCC             (len 001): R
+    Sub Element 20  (len 001): S
+    Sub Element 63  (len 015): MCC7472990725  
+Pos 049 Currency Code, Trans   (len   3): 124
+Pos 061 POS Data               (len  26): 0000010000300124V7A#5J7###
+Pos 090 Original Data Elements (len  42): 010017009707250533170000001036400000001297
+
+
+At July 25, 2018 01:33:59.2728 AM
+Type PT-4 Label DT__ refnum 030J8317     Format ISO-Nash 
+Term ID '01383454' Merch ID '000318320298991' Prim Acct '5413330089600077'
+
+
+ Message Type   : 0410
+ Bit Map 1            : 303801000a800002
+  Data Bits set are   : 003,004,011,012,013,024,037,039,041,063,
+Pos 003 Processing code        (len   6): 304000
+Pos 004 Amount, Transaction    (len  12): 000000000080
+Pos 011 Sys Trace Audit Bill   (len   6): 001104
+Pos 012 Time, Local Trans      (len   6): 223359
+Pos 013 Date, Local Trans      (len   4): 0724
+Pos 024 Network Int Ident      (len   3): 048
+Pos 037 Retreival Reference No (len  12): 000056709617
+Pos 039 Response Code          (len   2): 00
+Pos 041 Card Accept Term ID    (len   8): 01383454
+Pos 063
+
+    Table ID : SP
+        (ZY) Random Test Tag ZY         (len   3)    ZVY
+        (07) Token                      (len  16)    9575574302810077
+        (10) Service Provider ID        (len   3)    001
+
+    Table ID : SD
+        (XY) Random Test Tag XY    (len   3)    ORH
+        (TC) Terminal Capability   (len  15)    700111100001000
