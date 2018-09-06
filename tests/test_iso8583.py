@@ -126,6 +126,13 @@ class ISO8583Test(unittest.TestCase):
         packet += "19123456789012345678" # PAN
         self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field02")
+        #negative: LL more than 19. Field 2 only
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "4000000000000000" #bitmap
+        packet += "2012345678901234567890" # PAN
+        self.assertEqual(self.iso.unpack(packet), "invalid")
+        self.assertEqual(self.iso.error_msg, "field02")
         #For odd lengths, pad on right with Hex F
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -384,8 +391,8 @@ class ISO8583Test(unittest.TestCase):
         packet += "0000000020000000" #bitmap
         packet += "295435560000000007D120810123456F" #field 35 #TODO
         self.assertEqual(self.iso.unpack(packet), "valid")
-        self.assertEquals(self.iso.fields[35]['hex_val'], "5435560000000007D120810123456F")
-        self.assertEquals(self.iso.fields[35]['str_val'], "#TODO") #TODO
+        self.assertEquals(self.iso.fields[35]['hex_val'], "295435560000000007D120810123456F")
+        self.assertEquals(self.iso.fields[35]['str_val'], "5435560000000007D120810123456") #TODO
         self.assertEqual(self.iso.fields[35]['name'], self.iso.FIELD35_NAME)
         #negative: not z ..37
         packet = "1234567890" #tpdu
@@ -394,6 +401,14 @@ class ISO8583Test(unittest.TestCase):
         packet += "295435560000000007D12081012" #field 35
         self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field35")
+        #negative: .. more than 37
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0000000020000000" #bitmap
+        packet += "385435560000000007D120810121234567890123" #field 35
+        self.assertEqual(self.iso.unpack(packet), "invalid")
+        self.assertEqual(self.iso.error_msg, "field35")
+        
 
     def test_iso_unpack_input_chk(self):
         """

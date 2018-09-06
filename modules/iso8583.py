@@ -227,6 +227,10 @@ class Iso8583(object):
         #get LL
         size = int(self.pop_value_in_packet(2))
         hex_size = size
+        #check if not more than 19 or equal less than 0
+        if size <= 0 or size > 19:
+            self.set_errmsg(err_msg)
+            return "invalid" 
         #check if odd
         if (size % 2) != 0:
             size += 1
@@ -529,7 +533,6 @@ class Iso8583(object):
 
     def load_field31(self):
         """load field 31 an..1 acquirer reference data"""
-        #TODO
         result_value = "valid"
         err_msg = "field31"
         #check first if raw_packet has value
@@ -555,9 +558,37 @@ class Iso8583(object):
 
     def load_field35(self):
         """load field 35 z..37 track II data"""
-        #TODO not really needed
-        self.fields[35] = ""
-        return "valid"
+        result_value = "valid"
+        err_msg = "field35"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get ..
+        size = int(self.pop_value_in_packet(2))
+        hex_size = size
+        #check if not more than 37 or equal less than 0
+        if size <= 0 or size > 37:
+            self.set_errmsg(err_msg)
+            return "invalid" 
+        #check if odd
+        if (size % 2) != 0:
+            size += 1
+        #get VAR
+        track2 = self.pop_value_in_packet(size)
+        if len(track2) < hex_size:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = str(hex_size) + track2
+        str_val = track2[:hex_size]
+        self.fields[35] = dict(
+            {
+                'name': self.FIELD35_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field37(self):
         """load field 37 ans 12 reference number"""
