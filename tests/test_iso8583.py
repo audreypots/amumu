@@ -429,6 +429,26 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field37")
 
+    def test_iso_field_38_values_(self):
+        """
+        test for field 38
+        """
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0000000004000000" #bitmap
+        packet += "4F4B35323930" #field 38
+        self.assertEqual(self.iso.unpack(packet), "valid")
+        self.assertEquals(self.iso.fields[38]['hex_val'], "4F4B35323930")
+        self.assertEquals(self.iso.fields[38]['str_val'], "OK5290") 
+        self.assertEqual(self.iso.fields[38]['name'], self.iso.FIELD38_NAME)
+        #negative: not an 6
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0000000004000000" #bitmap
+        packet += "4F4B3532393" #field 37
+        self.assertEqual(self.iso.unpack(packet), "invalid")
+        self.assertEqual(self.iso.error_msg, "field38")
+
     def test_iso_unpack_input_chk(self):
         """
         test for invalid string values
