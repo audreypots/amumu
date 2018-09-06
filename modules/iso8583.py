@@ -77,6 +77,7 @@ class Iso8583(object):
     NII_SIZE = 4 #3
     POS_CONDITION_CODE_SIZE = 2
     ADD_POS_INFORMATION_SIZE = 2
+    REFERENCE_NUMBER_SIZE = 24
 
     #Field names
     FIELD02_NAME = "PAN"
@@ -592,9 +593,31 @@ class Iso8583(object):
 
     def load_field37(self):
         """load field 37 ans 12 reference number"""
-        #TODO not really needed
-        self.fields[37] = ""
-        return "valid"
+        result_value = "valid"
+        err_msg = "field37"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get reference number
+        reference_number = self.pop_value_in_packet(self.REFERENCE_NUMBER_SIZE)
+        #check if n 2
+        if len(reference_number) != 24:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = reference_number
+        #str_val = acq_ref_data[2:].decode("hex")
+        str_val = ""
+        for x_counter in range (0,24,2):
+            str_val += reference_number[x_counter:x_counter+2].decode("hex")
+        self.fields[37] = dict(
+            {
+                'name': self.FIELD37_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field38(self):
         """load field 38 an 6 approval code"""
