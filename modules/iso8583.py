@@ -79,6 +79,7 @@ class Iso8583(object):
     ADD_POS_INFORMATION_SIZE = 2
     REFERENCE_NUMBER_SIZE = 24
     APPROVAL_CODE_SIZE = 12
+    RESPONSE_CODE_SIZE = 4
 
     #Field names
     FIELD02_NAME = "PAN"
@@ -601,15 +602,19 @@ class Iso8583(object):
             self.set_errmsg(err_msg)
             return "invalid"
         #get reference number
-        reference_number = self.pop_value_in_packet(self.REFERENCE_NUMBER_SIZE)
+        reference_number = self.pop_value_in_packet(
+            self.REFERENCE_NUMBER_SIZE
+            )
         #check if n 2
-        if len(reference_number) != 24:
+        if len(reference_number) != self.REFERENCE_NUMBER_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
         hex_val = reference_number
         str_val = ""
-        for x_counter in range (0,24,2):
-            str_val += reference_number[x_counter:x_counter+2].decode("hex")
+        for x_counter in range (0,self.REFERENCE_NUMBER_SIZE*2,2):
+            str_val += reference_number[x_counter:x_counter+2].decode(
+                "hex"
+                )
         self.fields[37] = dict(
             {
                 'name': self.FIELD37_NAME,
@@ -628,15 +633,19 @@ class Iso8583(object):
             self.set_errmsg(err_msg)
             return "invalid"
         #get reference number
-        approval_code = self.pop_value_in_packet(self.APPROVAL_CODE_SIZE)
+        approval_code = self.pop_value_in_packet(
+            self.APPROVAL_CODE_SIZE
+            )
         #check if an 6
-        if len(approval_code) != 12:
+        if len(approval_code) != self.APPROVAL_CODE_SIZE:
             self.set_errmsg(err_msg)
             return "invalid"
         hex_val = approval_code
         str_val = ""
-        for x_counter in range (0,24,2):
-            str_val += approval_code[x_counter:x_counter+2].decode("hex").upper()
+        for x_counter in range (0,self.APPROVAL_CODE_SIZE*2,2):
+            str_val += approval_code[x_counter:x_counter+2].decode(
+                "hex"
+                ).upper()
         self.fields[38] = dict(
             {
                 'name': self.FIELD38_NAME,
@@ -648,9 +657,34 @@ class Iso8583(object):
 
     def load_field39(self):
         """load field 39 an 2 response code"""
-        #TODO not really needed
-        self.fields[39] = ""
-        return "valid"
+        result_value = "valid"
+        err_msg = "field39"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get reference number
+        response_code = self.pop_value_in_packet(
+            self.RESPONSE_CODE_SIZE
+            )
+        #check if an 2
+        if len(response_code) != self.RESPONSE_CODE_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = response_code
+        str_val = ""
+        for x_counter in range (0,self.RESPONSE_CODE_SIZE*2,2):
+            str_val += response_code[x_counter:x_counter+2].decode(
+                "hex"
+                ).upper()
+        self.fields[39] = dict(
+            {
+                'name': self.FIELD39_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field63(self):
         """load field63, unittest purposes"""
