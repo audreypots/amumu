@@ -724,19 +724,65 @@ class Iso8583(object):
 
     def load_field41(self):
         """load field 41 an 8 terminal id"""
-        #TODO not really needed
-        self.fields[41] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
+        result_value = "valid"
+        err_msg = "field41"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get reference number
+        terminal_id = self.pop_value_in_packet(
+            self.TERMINAL_ID_SIZE
             )
-        return "valid"
+        #check if an 8
+        if len(terminal_id) != self.TERMINAL_ID_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = terminal_id
+        str_val = ""
+        for x_counter in range(0, self.TERMINAL_ID_SIZE*2, 2):
+            str_val += terminal_id[x_counter:x_counter+2].decode(
+                "hex"
+                ).upper()
+        self.fields[41] = dict(
+            {
+                'name': self.FIELD41_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field42(self):
         """load field 42 an 15 merchant id"""
-        #TODO not really needed
-        self.fields[42] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
+        result_value = "valid"
+        err_msg = "field42"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get reference number
+        merchant_id = self.pop_value_in_packet(
+            self.MERCHANT_ID_SIZE
             )
-        return "valid"
+        #check if an 15
+        if len(merchant_id) != self.MERCHANT_ID_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = merchant_id
+        str_val = ""
+        for x_counter in range(0, self.MERCHANT_ID_SIZE*2, 2):
+            str_val += merchant_id[x_counter:x_counter+2].decode(
+                "hex"
+                ).upper()
+        self.fields[42] = dict(
+            {
+                'name': self.FIELD42_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field45(self):
         """load field 45 ans ..76 track I data"""
