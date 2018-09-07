@@ -226,17 +226,28 @@ class Iso8583(object):
 
     def display(self): #TODO
         """display formatted packet"""
-        output_text = "  : " + self.tpdu + "\n  : "
-        output_text += self.msg_type + "\n  : "
+        output_text = "   TPDU                      :"
+        output_text += self.tpdu + "\n"
+        output_text += "   Message Type              :"
+        output_text += self.msg_type + "\n"
+        output_text += "   Bitmap                    :"
         output_text += self.bitmap + "\n"
-        #for key in self.fields:
-        #    field = str(key)
-        #    output_text += field.zfill(2) + ": " + self.fields[key] + "\n"
-        #for key in self.fields:
-        #    if type(key) == dict:
-        #        output_text +=
-        #        for key2 in key:
-
+        for key in self.fields:
+            field = str(key)
+            field = field.zfill(2)
+            name = field + " " + self.fields[key]['name']
+            name = name.ljust(29, " ")
+            hex_val = self.fields[key]['hex_val']
+            str_val = self.fields[key]['str_val']
+            output_text += name + ":" + hex_val + "\n"
+            if hex_val != str_val:
+                print type(self.fields[key]['str_val'])
+                if type(self.fields[key]['str_val']) != dict:
+                    string_value = ":" + str_val + "\n"
+                    output_text += string_value.rjust(31+len(str_val))
+                else:
+                    #TODO
+                    print "TODO"
         return output_text
 
     def load_field01(self):
