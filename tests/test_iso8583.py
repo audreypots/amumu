@@ -500,7 +500,7 @@ class ISO8583Test(unittest.TestCase):
             )
         self.assertEquals(
             self.iso.fields[38]['str_val'], "OK5290"
-            ) 
+            )
         self.assertEqual(
             self.iso.fields[38]['name'], self.iso.FIELD38_NAME
             )
@@ -522,7 +522,7 @@ class ISO8583Test(unittest.TestCase):
         packet += "3030" #field 39
         self.assertEqual(self.iso.unpack(packet), "valid")
         self.assertEquals(self.iso.fields[39]['hex_val'], "3030")
-        self.assertEquals(self.iso.fields[39]['str_val'], "00") 
+        self.assertEquals(self.iso.fields[39]['str_val'], "00")
         self.assertEqual(
             self.iso.fields[39]['name'], self.iso.FIELD39_NAME
             )
@@ -548,7 +548,7 @@ class ISO8583Test(unittest.TestCase):
             )
         self.assertEquals(
             self.iso.fields[41]['str_val'], "01366798"
-            ) 
+            )
         self.assertEqual(
             self.iso.fields[41]['name'], self.iso.FIELD41_NAME
             )
@@ -601,7 +601,7 @@ class ISO8583Test(unittest.TestCase):
         str_field45 = "vB4217651111111119^FDMS CHECKCARD"
         str_field45 += "   /VISA^090410054321000000000000"
         str_field45 += "   000  150  A"
-                
+
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
         packet += "0000000000080000" #bitmap

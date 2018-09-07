@@ -28,8 +28,6 @@ def parse_packet(string_value):
     iso = iso8583.Iso8583()
     if iso.unpack(string_value) != "valid":
         return iso.error_msg
-    
-
     return iso.display()
 
 def parse_button_press():

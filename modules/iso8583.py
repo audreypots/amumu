@@ -236,18 +236,17 @@ class Iso8583(object):
             field = str(key)
             field = field.zfill(2)
             name = field + " " + self.fields[key]['name']
-            name = name.ljust(29, " ")
+            name = name.ljust(24, " ")
             hex_val = self.fields[key]['hex_val']
             str_val = self.fields[key]['str_val']
-            output_text += name + ":" + hex_val + "\n"
+            output_text += name + "(hex):" + hex_val + "\n"
             if hex_val != str_val:
-                print type(self.fields[key]['str_val'])
-                if type(self.fields[key]['str_val']) != dict:
+                #if type(self.fields[key]['str_val']) != dict:
+                if isinstance(self.fields[key]['str_val'], dict):
+                    print "TODO" #TODO
+                else:
                     string_value = ":" + str_val + "\n"
                     output_text += string_value.rjust(31+len(str_val))
-                else:
-                    #TODO
-                    print "TODO"
         return output_text
 
     def load_field01(self):
@@ -270,7 +269,7 @@ class Iso8583(object):
         #check if not more than 19 or equal less than 0
         if size <= 0 or size > 19:
             self.set_errmsg(err_msg)
-            return "invalid" 
+            return "invalid"
         #check if odd
         if (size % 2) != 0:
             size += 1
@@ -610,7 +609,7 @@ class Iso8583(object):
         #check if not more than 37 or equal less than 0
         if size <= 0 or size > 37:
             self.set_errmsg(err_msg)
-            return "invalid" 
+            return "invalid"
         #check if odd
         if (size % 2) != 0:
             size += 1
@@ -648,7 +647,7 @@ class Iso8583(object):
             return "invalid"
         hex_val = reference_number
         str_val = ""
-        for x_counter in range (0,self.REFERENCE_NUMBER_SIZE*2,2):
+        for x_counter in range(0, self.REFERENCE_NUMBER_SIZE*2, 2):
             str_val += reference_number[x_counter:x_counter+2].decode(
                 "hex"
                 )
@@ -679,7 +678,7 @@ class Iso8583(object):
             return "invalid"
         hex_val = approval_code
         str_val = ""
-        for x_counter in range (0,self.APPROVAL_CODE_SIZE*2,2):
+        for x_counter in range(0, self.APPROVAL_CODE_SIZE*2, 2):
             str_val += approval_code[x_counter:x_counter+2].decode(
                 "hex"
                 ).upper()
@@ -710,7 +709,7 @@ class Iso8583(object):
             return "invalid"
         hex_val = response_code
         str_val = ""
-        for x_counter in range (0,self.RESPONSE_CODE_SIZE*2,2):
+        for x_counter in range(0, self.RESPONSE_CODE_SIZE*2, 2):
             str_val += response_code[x_counter:x_counter+2].decode(
                 "hex"
                 ).upper()
