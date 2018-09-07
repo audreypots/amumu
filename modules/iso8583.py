@@ -59,6 +59,13 @@ class Iso8583(object):
             load_field37: Reference Number ANS 12
             load_field38: Approval Code AN 6
             load_field39: Response Code AN 2
+            load_field41: Terminal ID AN 8
+            load_field42: Merchant ID AN 15
+            load_field45: Track I Data ANS ..76
+            load_field48: Application Specific Data ANSB ....9999
+            load_field51: Transaction Currency Code AN 3
+            load_field52: PIN Block N 16
+            load_field53: Logon Password N 16
 
             load_field63: Private Use
     """
@@ -80,6 +87,11 @@ class Iso8583(object):
     REFERENCE_NUMBER_SIZE = 24
     APPROVAL_CODE_SIZE = 12
     RESPONSE_CODE_SIZE = 4
+    TERMINAL_ID_SIZE = 16
+    MERCHANT_ID_SIZE = 30
+    TRANSACTION_CUR_CODE = 6
+    PIN_BLOCK_SIZE = 16
+    LOGON_PASSWORD_SIZE = 16
 
     #Field names
     FIELD02_NAME = "PAN"
@@ -99,6 +111,13 @@ class Iso8583(object):
     FIELD37_NAME = "Reference Number"
     FIELD38_NAME = "Approval Code"
     FIELD39_NAME = "Response Code"
+    FIELD41_NAME = "Terminal ID"
+    FIELD42_NAME = "Merchant ID"
+    FIELD45_NAME = "Track I Data"
+    FIELD48_NAME = "Application Specific Data"
+    FIELD51_NAME = "Transaction Currency Code"
+    FIELD52_NAME = "PIN Block"
+    FIELD53_NAME = "Logon Password"
 
     def __init__(self):
         """Return an empty ISO858 object"""
@@ -126,6 +145,13 @@ class Iso8583(object):
             37: self.load_field37,
             38: self.load_field38,
             39: self.load_field39,
+            41: self.load_field41,
+            42: self.load_field42,
+            45: self.load_field45,
+            48: self.load_field48,
+            51: self.load_field51,
+            52: self.load_field52,
+            53: self.load_field53,
             63: self.load_field63
             })
         self.error_msg = ""
@@ -685,6 +711,62 @@ class Iso8583(object):
             }
         )
         return result_value
+
+    def load_field41(self):
+        """load field 41 an 8 terminal id"""
+        #TODO not really needed
+        self.fields[41] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
+
+    def load_field42(self):
+        """load field 42 an 15 merchant id"""
+        #TODO not really needed
+        self.fields[42] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
+
+    def load_field45(self):
+        """load field 45 ans ..76 track I data"""
+        #TODO not really needed
+        self.fields[45] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
+
+    def load_field48(self):
+        """load field 48 ansb ....9999 application specific data"""
+        #TODO not really needed
+        self.fields[48] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
+
+    def load_field51(self):
+        """load field 51 an 3 transaction currency code"""
+        #TODO not really needed
+        self.fields[51] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
+
+    def load_field52(self):
+        """load field 52 n 16 pin block"""
+        #TODO not really needed
+        self.fields[52] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
+
+    def load_field53(self):
+        """load field 53 n 16 logon password"""
+        #TODO not really needed
+        self.fields[53] = dict(
+            {'name': "", 'hex_val': "", 'str_val': ""}
+            )
+        return "valid"
 
     def load_field63(self):
         """load field63, unittest purposes"""

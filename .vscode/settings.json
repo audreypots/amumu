@@ -5,6 +5,8 @@
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.fontSize": 12,
     "cSpell.words": [
+        "ANSB",
+        "FDMS",
         "LLVAR",
         "Tkinter",
         "amumu",
