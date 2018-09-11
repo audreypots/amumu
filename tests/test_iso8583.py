@@ -587,7 +587,7 @@ class ISO8583Test(unittest.TestCase):
         self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field42")
 
-    def test_iso_field_45_values_(self):
+    def test_iso_field_45_values_(self):#TODO Need to double check
         """
         test for field 45
         """
@@ -598,9 +598,9 @@ class ISO8583Test(unittest.TestCase):
         field45 += "303030303030303030202031353020" #field 45
         field45 += "2041" #field 45
 
-        str_field45 = "vB4217651111111119^FDMS CHECKCARD"
+        str_field45 = "B4217651111111119^FDMS CHECKCARD"
         str_field45 += "   /VISA^090410054321000000000000"
-        str_field45 += "   000  150  A"
+        str_field45 += "000  150  A"
 
         packet = "1234567890" #tpdu
         packet += "0200" #msg_type
@@ -617,6 +617,13 @@ class ISO8583Test(unittest.TestCase):
         packet += "0200" #msg_type
         packet += "0000000000080000" #bitmap
         packet += "764234323137363531313131313131" #field 45
+        self.assertEqual(self.iso.unpack(packet), "invalid")
+        self.assertEqual(self.iso.error_msg, "field45")
+        #negative: more than 76
+        packet = "1234567890" #tpdu
+        packet += "0200" #msg_type
+        packet += "0000000000080000" #bitmap
+        packet += "774234323137363531313131313131" #field 45
         self.assertEqual(self.iso.unpack(packet), "invalid")
         self.assertEqual(self.iso.error_msg, "field45")
 

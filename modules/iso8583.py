@@ -786,11 +786,33 @@ class Iso8583(object):
 
     def load_field45(self):
         """load field 45 ans ..76 track I data"""
-        #TODO not really needed
+        result_value = "valid"
+        err_msg = "field45"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get ..
+        size = int(self.pop_value_in_packet(2))
+        size *= 2
+        #check if not more than 76 or equal less than 0
+        if size <= 0 or size > 76*2:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        track1 = self.pop_value_in_packet(size)
+        if len(track1) < size:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = str(size/2) + track1
+        str_val = track1.decode("hex")
         self.fields[45] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
-            )
-        return "valid"
+            {
+                'name': self.FIELD45_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field48(self):
         """load field 48 ansb ....9999 application specific data"""
