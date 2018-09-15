@@ -717,7 +717,7 @@ class ISO8583Test(unittest.TestCase):
             self.iso.fields[53]['str_val'], "1803191849230000"
             )
         self.assertEqual(
-            self.iso.fields[53]['name'], self.iso.FIELD52_NAME
+            self.iso.fields[53]['name'], self.iso.FIELD53_NAME
             )
         #negative: not n 16
         packet = "1234567890" #tpdu

@@ -816,35 +816,114 @@ class Iso8583(object):
 
     def load_field48(self):
         """load field 48 ansb ....9999 application specific data"""
-        #TODO not really needed
+        result_value = "valid"
+        err_msg = "field48"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get ..
+        size = int(self.pop_value_in_packet(4))
+        size *= 2
+        #check if not more than 9999 or equal less than 0
+        if size <= 0 or size > 9999*2:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        application_data = self.pop_value_in_packet(size)
+        if len(application_data) < size:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = str(size/2).zfill(4) + application_data
+        str_val = application_data
         self.fields[48] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
-            )
-        return "valid"
+            {
+                'name': self.FIELD48_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field51(self):
         """load field 51 an 3 transaction currency code"""
-        #TODO not really needed
-        self.fields[51] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
+        result_value = "valid"
+        err_msg = "field51"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get reference number
+        trans_cur_code = self.pop_value_in_packet(
+            self.TRANSACTION_CUR_CODE
             )
-        return "valid"
+        #check if an 3
+        if len(trans_cur_code) != self.TRANSACTION_CUR_CODE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = trans_cur_code
+        str_val = ""
+        for x_counter in range(0, self.TRANSACTION_CUR_CODE*2, 2):
+            str_val += trans_cur_code[x_counter:x_counter+2].decode(
+                "hex"
+                ).upper()
+        self.fields[51] = dict(
+            {
+                'name': self.FIELD51_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field52(self):
         """load field 52 n 16 pin block"""
-        #TODO not really needed
+        result_value = "valid"
+        err_msg = "field52"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get Time
+        pin_block = self.pop_value_in_packet(self.PIN_BLOCK_SIZE)
+        #check if n 16
+        if len(pin_block) != self.PIN_BLOCK_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = pin_block
+        str_val = pin_block
         self.fields[52] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
-            )
-        return "valid"
+            {
+                'name': self.FIELD52_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field53(self):
         """load field 53 n 16 logon password"""
-        #TODO not really needed
+        result_value = "valid"
+        err_msg = "field53"
+        #check first if raw_packet has value
+        if self.is_raw_packet_empty():
+            self.set_errmsg(err_msg)
+            return "invalid"
+        #get Time
+        logon_password = self.pop_value_in_packet(self.LOGON_PASSWORD_SIZE)
+        #check if n 16
+        if len(logon_password) != self.LOGON_PASSWORD_SIZE:
+            self.set_errmsg(err_msg)
+            return "invalid"
+        hex_val = logon_password
+        str_val = logon_password
         self.fields[53] = dict(
-            {'name': "", 'hex_val': "", 'str_val': ""}
-            )
-        return "valid"
+            {
+                'name': self.FIELD53_NAME,
+                'hex_val': hex_val,
+                'str_val': str_val
+            }
+        )
+        return result_value
 
     def load_field63(self):
         """load field63, unittest purposes"""
